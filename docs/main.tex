@@ -139,6 +139,11 @@ Para esto, se implementó una función donde para la transpuesta, suma de todos 
 
 \section{Advanced Einsum (Batch MatMul)}
 
+La multiplicación de matrices por lotes es fundamental para el aprendizaje profundo moderno, especialmente en las arquitecturas Transformer, donde los mecanismos 
+de atención requieren operaciones por lotes eficientes. Este problema demuestra la einsumelegancia con la que se manejan las complejas contracciones 
+de tensores multidimensionales, que serían engorrosas con las operaciones matriciales estándar. \\ 
+
+
 Dados dos tensores $Q, K \in \mathbb{R}^{B \times H \times S \times D}$, se calcula el producto $QK^\top$ para cada par $(b, h)$:
 
 \[
@@ -159,6 +164,8 @@ Equivalente para un solo par $(b, h)$:
 \text{Scores}[b,h] = Q[b,h] \cdot K[b,h]^\top \quad (S \times D)\cdot(D \times S) = (S \times S)
 \]
 
+Se implementó la que recibe dos tensores Q y K de forma (B, H, S, D) y usa einsum con la cadena 'bhid,bhjd->bhij' para calcular el producto punto entre 
+cada query y cada key. El índice d desaparece porque se suma, mientras que b, h, i, j se conservan, dando una salida de forma (B, H, S, S).
 
 \newpage
 
