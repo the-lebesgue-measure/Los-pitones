@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.12)  1 MAY 2026 14:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.12)  1 MAY 2026 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -801,9 +801,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
-[4{C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}] [5] [6] [7] [8] [9] [10]
+[4{C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 105--109
+
+ []
+
+[5] [6] [7] [8] [9] [10]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 6.6pt on input line 137.
+(Font)              scaled to size 6.6pt on input line 149.
  [11] [12] [13]
 Missing character: There is no Ÿ in font zpl-Regular-tlf-ot1!
 [14] [15] [16] [17] (main.aux
@@ -816,15 +821,15 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 19961 strings out of 474486
- 370864 string characters out of 5744699
+ 19965 strings out of 474486
+ 370921 string characters out of 5744699
  1935542 words of memory out of 5000000
- 41870 multiletter control sequences out of 15000+600000
+ 41874 multiletter control sequences out of 15000+600000
  614892 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,6n,107p,512b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\XPC\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1200.pk><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on main.pdf (17 pages, 126596 bytes).
+Output written on main.pdf (17 pages, 128229 bytes).
 PDF statistics:
  110 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
