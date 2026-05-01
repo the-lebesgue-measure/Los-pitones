@@ -1,7 +1,7 @@
 # nombre.py
 # Hecho por 
 # Anthonny Flores Rojas C32975
-# ...
+# Randal Picado Bermudez C36024
 # ...
 # ...
 
@@ -124,6 +124,25 @@ print(resultado)
 
 
 # Ejercicio 5
+def tensor_reductions(x: np.ndarray, axis: int):
+    resultados = {} #Se crea un diccionario para los resultados
+    #Se usan las funciones de np para cada operacion, las cuales manejan los axis
+    suma = np.sum(x, axis = axis)
+    media = np.mean(x, axis = axis)
+    maximo = np.max(x, axis = axis)
+    pos_max = np.argmax(x, axis = axis)
+    #Se agrega cada resultado al diccionario con las respectivas claves
+    resultados["sum"] = suma
+    resultados["mean"] = media
+    resultados["max"] = maximo
+    resultados["argmax"] = pos_max
+    return resultados
+
+#Caso de prueba que se da en la pagina
+x = [[1, 2, 3], 
+     [4, 5, 6]]
+axis = 1
+print(tensor_reductions(x, axis))
 
 # Ejercicio 6
 
