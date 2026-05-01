@@ -10,6 +10,7 @@
 \usepackage[margin=3cm]{geometry}
 \usepackage{titlesec}
 \usepackage[autostyle]{csquotes}
+\usepackage{amsmath}
 
 % --- Para dibujar la V de Gowin ---
 \usepackage{tikz}
@@ -62,18 +63,54 @@ de la matriz (dicha fila es un vector). A grandes rasgos, se están haciendo var
 En esta sección se exploran dos formas de programar una función 
 que calcule el producto de dos matrices (con las dimensiones adecuadas). La primera forma
 consiste en usar únicamente las propiedades del paquete básico de Python, mientras que la otra 
-forma utiliza únicamente las funciones optimizadas del paquete \textit{NumPy´s}
+forma utiliza únicamente las funciones optimizadas del paquete \textit{NumPy´s}. \\ 
 
 Cabe destacar que este producto punto es el mismo que se estudió en el curso de Algebra Lineal, con todas
-sus propiedades asociadas.
+sus propiedades asociadas. \\ 
+
+Para la primera función que se usaron los ciclos, se deben saber obviamente las dimensiones de las matrices para que se pueda hacer el producto matricial, 
+luego se hace una matriz llena de ceros con esas dimensiones y se va llenando con el producto matricial entre las dos matrices tradicional que se estudió en Álgebra Lineal. \\ 
+
+\begin{centering}
+
+    C_{ij} = \sum_{k=1}^{n} A_{ik} \, B_{kj}
+
+\end {centering} \\ 
+
+Para la segunda función, se utilizó únicamente el \textit{np.dot()}, función de Numpy la cual permite obtener el produto matricial sin bucles y lo hace directamente. 
 
 \newpage
 
 \section{Element-wise Operations}
 
+Las operaciones elemento a elemento son los componentes básicos de las redes neuronales. 
+A diferencia de la multiplicación de matrices, que combina información de diferentes dimensiones, las operaciones elemento a elemento aplican la misma operación de forma 
+independiente a cada par de elementos correspondiente. \\ 
+
+Se definió una variable epsilon = $1e-8$ para poder hacer divisiones seguras. Se implementó la función que recibe las matrices A y B y hace las siguientes operaciones. \\ 
+
+Suma: $a_{ij} + b_{ij}$, es decir suma entrada por entrada. \\ 
+
+Multiplicación: $a_{ij} * b_{ij}$, es decir multiplica entrada por entrada. \\ 
+
+División: $a_{ij} * b_{ij} + \epsilon$, es decir, divide entrada por entrada y usa el $\epsilon$ para evitar indeterminaciones. \\ 
+
+
 \newpage
 
 \section{Tensor Reshaping \& Transposing}
+
+El redimensionamiento y la transposición de tensores son operaciones fundamentales en el aprendizaje profundo, especialmente cuando se trabaja con datos 
+multidimensionales como imágenes, secuencias y lotes. Estas operaciones nos permiten: \\ 
+
+\noindent Conversión de formato : Cambiar entre diferentes diseños de memoria (por ejemplo, NCHW frente a NHWC para imágenes). \\ \\ 
+Manipulación de dimensiones : Reorganizar los datos para que sean compatibles con diferentes tipos de capas. \\ \\ 
+Procesamiento por lotes : Reestructurar los datos aplanados para convertirlos nuevamente en lotes estructurados. \\ \\ 
+Compatibilidad de API : Adaptar los formatos de entrada esperados para diferentes frameworks (PyTorch usa NCHW, TensorFlow usa NHWC). \\ \\  
+
+La función que se implementó recibe un vector x de una sola dimensión. EL primer paso consiste en verificar si x cumple con los elementos necesarios para rellenar
+el tensor. Si x pasa esa "prueba", ya se le hace el reshape con el B,C,H,W para hacerlo un tensor en 4D en formato NCHW y con el transpose finalmente se convierte en el formato NHWC
+que era el objetivo. 
 
 \newpage
 
@@ -91,9 +128,44 @@ sus propiedades asociadas.
 
 \section{Einstein Summation (einsum) Basics}
 
+La notación de suma de Einstein (np.einsum) es una de las herramientas más potentes y expresivas de NumPy para operaciones con tensores. 
+Proporciona una forma concisa y matemáticamente elegante de especificar contracciones, reducciones y transformaciones complejas de tensores mediante una notación de cadena sencilla.
+
+Para esto, se implementó una función donde para la transpuesta, suma de todos los elementos de la matriz, suma de  filas, suma de columnas y producto matricial, se hace el juego de los 
+índices. Por ejemplo en la transpuesta, basta con intercambiar los i con los j. Aprender este juego con los índices con la función einsum hace mucho más eficientes muchos procesos. 
+
+
 \newpage
 
 \section{Advanced Einsum (Batch MatMul)}
+
+La multiplicación de matrices por lotes es fundamental para el aprendizaje profundo moderno, especialmente en las arquitecturas Transformer, donde los mecanismos 
+de atención requieren operaciones por lotes eficientes. Este problema demuestra la einsumelegancia con la que se manejan las complejas contracciones 
+de tensores multidimensionales, que serían engorrosas con las operaciones matriciales estándar. \\ 
+
+
+Dados dos tensores $Q, K \in \mathbb{R}^{B \times H \times S \times D}$, se calcula el producto $QK^\top$ para cada par $(b, h)$:
+
+\[
+\text{Scores}_{bhij} = \sum_{d=0}^{D-1} Q_{bhid} \cdot K_{bhjd}
+\]
+
+El índice $d$ se suma (contrae); los índices $b, h, i, j$ se conservan en la salida $\text{Scores} \in \mathbb{R}^{B \times H \times S \times S}$.
+
+En notación \texttt{einsum}:
+
+\[
+\texttt{"bhid, bhjd -> bhij"}
+\]
+
+Equivalente para un solo par $(b, h)$:
+
+\[
+\text{Scores}[b,h] = Q[b,h] \cdot K[b,h]^\top \quad (S \times D)\cdot(D \times S) = (S \times S)
+\]
+
+Se implementó la que recibe dos tensores Q y K de forma (B, H, S, D) y usa einsum con la cadena 'bhid,bhjd->bhij' para calcular el producto punto entre 
+cada query y cada key. El índice d desaparece porque se suma, mientras que b, h, i, j se conservan, dando una salida de forma (B, H, S, S).
 
 \newpage
 
