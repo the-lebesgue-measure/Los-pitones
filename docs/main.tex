@@ -99,9 +99,27 @@ sus propiedades asociadas.
 
 \section{Gradient of Sum}
 
+El gradiente por definicion es un vector 
+
+\[
+\nabla f(x) = \left( \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n} \right)
+\]
+el cual se toma como generalización multiplicable de la derivada convencional, que mide la dirección en la cual se da el mayor crecimiento (o decrecimiento en su negativa) con un vector que es ortogonal a la superficie de la función (siendo esta función diferenciable).
+
+Desde un punto de vista matemático, el algoritmo empieza de la suposición de que dado que las derivadas parciales de \(\displaystyle y = \sum_i x_i\) son iguales idénticas, ya que estas son funciones lineales; por regla de la cadena se tiene que 
+\[
+\frac{\partial L}{\partial x_i} = \frac{\partial L}{\partial y} \frac{\partial y}{\partial x_i}  = \frac{\partial L}{\partial y}
+\]
+en cuyo caso \(\frac{\partial L}{\partial x_i}  = \text{grad\_y}\). 
+
+Gracias a que las derivadas parciales son iguales entre si, entonces el gradiente es simplemente el gradiente de y en cada una de las componentes del gradiente. Basta con tomar una matriz de dimensiones dadas y llenar todas las componentes con el valor del gradiente de y.
+
+
 \newpage
 
 \section{Gradient of Matrix Multiplication}
+
+
 
 \newpage
 
