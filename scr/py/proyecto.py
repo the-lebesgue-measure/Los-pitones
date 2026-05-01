@@ -145,8 +145,44 @@ axis = 1
 print(tensor_reductions(x, axis))
 
 # Ejercicio 6
+def compute_norms(x: np.ndarray) -> Dict[str, np.ndarray]:
+    resultados = {} #Diccionario para resultados
+    l1 = np.sum(np.abs(x), axis = 1) #se aplica el valor absoluto a cada elemento del tensor y luego se suman los valores a lo largo del 
+    #axis=1, lo que permite obtener una norma por cada vector.
+    l2 = np.sqrt(np.sum(np.square(x), axis=1)) #se elevan los elementos al cuadrado, se suman por filas y se aplica la raíz cuadrada.
+    #Se agregan resultados al diccionario
+    resultados["l1"] = l1
+    resultados["l2"] = l2
+    return resultados
+
+#Se prueba con el ejemplo de la pagina
+
+x2 = [[3, 4], 
+     [1, -1]]
+print(compute_norms(x2))
+
 
 # Ejercicio 7
+def vector_products(a: np.ndarray, b: np.ndarray) -> Dict[str, np.ndarray]:
+    #se convierten las entradas a arreglos de NumPy
+    a = np.asarray(a)
+    b = np.asarray(b)
+    #Se genera diccionario de resultados
+    resultados = {}
+    #Para el producto punto, se realiza una multiplicación elemento a elemento entre los vectores y luego se suman los resultados a lo largo del axis=1
+    dot = np.sum(a*b, axis=1)
+    #Para el producto cruz, se utiliza la función np.cross, que calcula directamente el vector perpendicular para cada par. 
+    cross = np.cross(a, b)
+    #Finalmente, los resultados se almacenan en un diccionario con las claves "dot" y "cross".
+    resultados["dot"] = dot
+    resultados["cross"] = cross
+    return resultados
+
+#Caso de prueba
+a = [[1, 0, 0]]
+b = [[0, 1, 0]]
+
+print(vector_products(a, b))
 
 # Ejercicio 8
 
