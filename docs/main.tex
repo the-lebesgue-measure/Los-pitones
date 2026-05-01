@@ -100,12 +100,12 @@ División: $a_{ij} * b_{ij} + \epsilon$, es decir, divide entrada por entrada y 
 \section{Tensor Reshaping \& Transposing}
 
 El redimensionamiento y la transposición de tensores son operaciones fundamentales en el aprendizaje profundo, especialmente cuando se trabaja con datos 
-multidimensionales como imágenes, secuencias y lotes. Estas operaciones nos permiten:
+multidimensionales como imágenes, secuencias y lotes. Estas operaciones nos permiten: \\ 
 
-Conversión de formato : Cambiar entre diferentes diseños de memoria (por ejemplo, NCHW frente a NHWC para imágenes). \\ 
-Manipulación de dimensiones : Reorganizar los datos para que sean compatibles con diferentes tipos de capas. \\ 
-Procesamiento por lotes : Reestructurar los datos aplanados para convertirlos nuevamente en lotes estructurados. \\ 
-Compatibilidad de API : Adaptar los formatos de entrada esperados para diferentes frameworks (PyTorch usa NCHW, TensorFlow usa NHWC). \\ 
+Conversión de formato : Cambiar entre diferentes diseños de memoria (por ejemplo, NCHW frente a NHWC para imágenes). \\ \\ 
+Manipulación de dimensiones : Reorganizar los datos para que sean compatibles con diferentes tipos de capas. \\ \\ 
+Procesamiento por lotes : Reestructurar los datos aplanados para convertirlos nuevamente en lotes estructurados. \\ \\ 
+Compatibilidad de API : Adaptar los formatos de entrada esperados para diferentes frameworks (PyTorch usa NCHW, TensorFlow usa NHWC). \\ \\  
 
 La función que se implementó recibe un vector x de una sola dimensión. EL primer paso consiste en verificar si x cumple con los elementos necesarios para rellenar
 el tensor. Si x pasa esa "prueba", ya se le hace el reshape con el B,C,H,W para hacerlo un tensor en 4D en formato NCHW y con el transpose finalmente se convierte en el formato NHWC
