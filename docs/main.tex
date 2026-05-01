@@ -78,11 +78,22 @@ luego se hace una matriz llena de ceros con esas dimensiones y se va llenando co
 
 Para la segunda función, se utilizó únicamente el \textit{np.dot()}, función de Numpy la cual permite obtener el produto matricial sin bucles y lo hace directamente. 
 
-
-
 \newpage
 
 \section{Element-wise Operations}
+
+Las operaciones elemento a elemento son los componentes básicos de las redes neuronales. 
+A diferencia de la multiplicación de matrices, que combina información de diferentes dimensiones, las operaciones elemento a elemento aplican la misma operación de forma 
+independiente a cada par de elementos correspondiente. \\ 
+
+Se definió una variable epsilon = $1e-8$ para poder hacer divisiones seguras. Se implementó la función elementwise_ops(A,B) que recibe las matrices A y B y hace las siguientes operaciones. \\ 
+
+Suma: $a_{ij} + b_{ij}$, es decir suma entrada por entrada. \\ 
+
+Multiplicación: $a_{ij} * b_{ij}$, es decir multiplica entrada por entrada. \\ 
+
+División: $a_{ij} * b_{ij} + \epsilon$, es decir, divide entrada por entrada y usa el $\epsilon$ para evitar indeterminaciones. \\ 
+
 
 \newpage
 
