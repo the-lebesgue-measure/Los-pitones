@@ -138,6 +138,30 @@ Para esto, se implementó una función donde para la transpuesta, suma de todos 
 
 \section{Advanced Einsum (Batch MatMul)}
 
+Dados dos tensores $Q, K \in \mathbb{R}^{B \times H \times S \times D}$, se calcula el producto $QK^\top$ para cada par $(b, h)$:
+
+\[
+\text{Scores}_{bhij} = \sum_{d=0}^{D-1} Q_{bhid} \cdot K_{bhjd}
+\]
+
+El índice $d$ se suma (contrae); los índices $b, h, i, j$ se conservan en la salida $\text{Scores} \in \mathbb{R}^{B \times H \times S \times S}$.
+
+En notación \texttt{einsum}:
+
+\[
+\texttt{"bhid, bhjd -> bhij"}
+\]
+
+Equivalente para un solo par $(b, h)$:
+
+\[
+\text{Scores}[b,h] = Q[b,h] \cdot K[b,h]^\top \quad (S \times D)\cdot(D \times S) = (S \times S)
+\]
+
+
+
+
+
 \newpage
 
 \section{Gradient of Sum}
