@@ -42,10 +42,30 @@
 
 \section{Tensor Broadcasting Basics}
 
+En el contexto matemático, se define un objeto algebraico que define
+que describe la relación multilinear entre conjuntos de objetos algebraicos asociados
+a un espacio vectorial. Esta sección afirma que en el contexto de \textit{Machine Learning} 
+se acostumbra a manipular tensores con formas variadas. A su vez, presenta un mecanismo llamado \textit{Broadcasting}, que permite 
+aplicar operaciones entre la i-ésima fila de un vector con la i-ésima fila de otro vector. Cabe mencionar, que dichos vectores podrían 
+estar formados por otros vectores (como en las matrices, donde cada fila es un vector). Dicho mecanismo logra lo anterior al "estirar" el vector más pequeño (menor dimensión) para
+que tenga las dimensiones del vector más grande.
+
+El código asociado a esta sección permite sumar una constante a cada entrada de una matriz y hacer el producto de la í-ésima fila de un vector columna (el cual es un escalar) con la i-ésima fila
+de la matriz (dicha fila es un vector). A grandes rasgos, se están haciendo varios productos escalares a varios vectores al mismo tiempo.  
+
+
 \newpage
 
 
 \section{Matrix Multiplication}
+
+En esta sección se exploran dos formas de programar una función 
+que calcule el producto de dos matrices (con las dimensiones adecuadas). La primera forma
+consiste en usar únicamente las propiedades del paquete básico de Python, mientras que la otra 
+forma utiliza únicamente las funciones optimizadas del paquete \textit{NumPy´s}
+
+Cabe destacar que este producto punto es el mismo que se estudió en el curso de Algebra Lineal, con todas
+sus propiedades asociadas.
 
 \newpage
 
@@ -91,6 +111,39 @@
 
 \section{Softmax Implementation (stable)}
 
+En esta sección se destaca la relevancia de la función \textit{Softmax} en el contexto de redes neuronales. Cuando 
+una red neuronal hace un análisis, devuelve un \textit{logit}, el cual se puede entender como un vector que guarda información acerca 
+de la respuesta al problema que la red neuronal estaba analizando. Este vector por si solo no representa una distribución de probabilidad, pero 
+gracias a la función \textit{Softmax} se puede generar un vector que guarde la información del \textit{logit} y que al mismo tiempo sea una distribución 
+de probabilidad válida. Todo lo anterior permite interpretar los resultados del modelo como probabilidades, lo que permite cuantificar los errores del modelo.
+
+Posteriormente se mencionan varios puntos que sirven para ejemplificar la importancia de está función en general, pero se pueden sintetizar en que \textit{Softmax} permite
+conectar los resultados obtenidos por una red neuronal con predicciones interpretables. 
+
+Matemáticamente, \textit{Softmax} es una matriz de dimensión $N\times C$ con las mismas dimensiones que la matriz original obtenida a partir del modelo, donde cada fila representa una muestra y cada columna representa una clasificación. Así, la matriz asociada a \textit{Softmax} está dada por:
+
+$$\textit{Softmax}(x)_i = \frac{e^{x_i-\max(x)}}{\sum_{j=1}^C e^{x_j}} $$
+
+Donde $x_i$ es el elemento ubicado en una cierta entrada de la matriz original, $max(x)$ es el máximo de la fila asociada al elemento mencionado anteriormente y $\sum_j=1^C e^x_j$ es la suma de las exponenciales asociadas a los elementos que están en la misma fila que el $x_i$ mencionado anteriormente. 
+
+Primeramente, al aplicar la operación $\exp(x)$ a cada entrada de la matriz, entonces se asegura que todas las entradas de la nueva matriz van a ser positivas (lo cual es una condición necesaria para que un número represente una probabilidad). Por último, al definir una nueva matriz 
+como la matriz anterior pero donde la iésima está multiplicada por el inverso de la suma de los elementos de dicha fila, gracias a esto es fácil comprobar que la suma de todos los elementos de la iésima fila de la nueva matriz será igual a 1, lo que es necesario al momento de definir una función de densidad (condición de normalización).
+Además, es posible mostrar que: \begin{enumerate}
+    \item ($Orden$) Dadas dos entradas de la matriz original $x_i$, $x_j$, si se tiene que $x_i > x_j$, entonces $\textit{Softmax}(x)_i>\textit{Softmax}(x)_j$ (pues la exponencial es creciente). 
+    \item ($Diferenciabilidad$) Al ver la nueva matriz como una función $\textit{Softmax}(x)$, entonces se tiene que es infinitamente diferenciable entrada por entrada.
+    \item ($Invarianza$) Sumar una constante a todas las entradas de una misma fila de la matriz original no cambia a la matriz \textit{Softmax} asociada.
+
+Sin embargo, la función $\textit{Softmax}(x)$ tiene el problema de que las funciones exponenciales que definen sus entradas podrían causar un \textit{overflow} muy fácilmente (pues las exponenciales crecen súmamente rápido). Para solucionar esto, se puede aprovechar la propiedad de 
+invarianza descrita anteriormente para acotar dichas exponenciales. Esto se puede lograr al restar el máximo elemento de una fila a cada elemento de la fila. De esta manera, se asegura que todos los elementos de la fila van a ser no positivos. Esto permite que, 
+posteriormente, al aplicar la función $\exp(x)$ a cada entrada de la matriz, dicha función esté acotada 
+superiormente (por lo que aplicar dicha función no va a requerir tanto poder computacional, pues no tendrá que 
+calcular números más grandes que 1). 
+\end{enumerate}
+
+
+
+
+
 \newpage
 
 \section{Cross-Entropy Loss (Manual)}
@@ -101,4 +154,3 @@
 
     
 \end{document}
-
