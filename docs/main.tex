@@ -1,68 +1,104 @@
-%==============================
-% PREFORMAT SIMPLIFICADO
-%==============================
-\documentclass[letterpaper,10pt]{article} % Cambiado a article para evitar saltos de página de capítulos
 
-%==============================
-% PAQUETES DE IDIOMA Y CODIFICACIÓN
-%==============================
+
+\documentclass[12pt, letterpaper]{article}
+
+% --- Paquetes básicos ---
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[spanish]{babel} % Añadido para guionizado y nombres en español
-\usepackage{indentfirst}
-\setlength{\parindent}{2em}
-\setlength{\parskip}{0pt}
+\usepackage{newpxtext,newpxmath} % Fuente estilo Palatino
+\usepackage[margin=3cm]{geometry}
+\usepackage{titlesec}
+\usepackage[autostyle]{csquotes}
 
-%==============================
-% PAQUETES DE TIPOGRAFÍA
-%==============================
-\usepackage{lmodern}
+% --- Para dibujar la V de Gowin ---
+\usepackage{tikz}
+\usetikzlibrary{positioning,babel,calc}
 
-%==============================
-% MATEMÁTICAS ESENCIALES
-%==============================
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{mathtools}
-\usepackage{unicode-math} 
+% --- Configuración de la sección (1. IDEA DE...) ---
+\titleformat{\section}
+  {\normalfont\large\scshape\centering} 
+  {\thesection.}
+  {0.5em}
+  {}
 
-
-\usepackage{esint}         % Integrales
-\usepackage{physics}       % Notación simplificada
-\usepackage{derivative}    % Derivadas
-\usepackage{siunitx}       % Unidades
-\usepackage{actuarialsymbol} % Fundamental para tu carrera
-\usepackage{mathrsfs}      % Fuentes curasivas extra
-
-%==============================
-% DISEÑO DE PÁGINA (Estilo APA 7)
-%==============================
-\usepackage[margin=2.54cm]{geometry}
-\usepackage{setspace}
-\setstretch{1} % Interlineado sencillo (puedes cambiar a 1.5 o 2 si prefieres)
-
-\usepackage{enumitem}
-\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=1cm}
-
-%==============================
-% ELEMENTOS VISUALES BÁSICOS
-%==============================
-\usepackage{graphicx}
-\usepackage{booktabs} % Tablas limpias
-\usepackage{xcolor}
-\usepackage[colorlinks=true, allcolors=black]{hyperref}
-
-%==============================
-% INFORMACIÓN DEL DOCUMENTO
-%==============================
-\title{Titulo}
-\author{Anthonny Flores Rojas}
+\title
+{
+    Bitácora I \\[1ex] 
+\large CA0305 - Herramientas de Ciencia de Datos II
+}
+\author{Anthonny Flores Rojas (C32975)\\ Andrey González Bastos (C33329)\\ Randal Picado Bermúdez (C36024)\\ Leonardo Vega Aragón (C38313) }
 \date{\today}
 
 %==============================
 % CUERPO DEL DOCUMENTO
 %==============================
 \begin{document}
-	
-	\maketitle
-	
+    
+\maketitle
+
+
+\newpage
+
+\section{Tensor Broadcasting Basics}
+
+\newpage
+
+
+\section{Matrix Multiplication}
+
+\newpage
+
+\section{Element-wise Operations}
+
+\newpage
+
+\section{Tensor Reshaping \& Transposing}
+
+\newpage
+
+\section{Reduction Operations}
+
+\newpage
+
+\section{Vector Norms}
+
+\newpage
+
+\section{Dot Product \& Cross Product}
+
+\newpage
+
+\section{Einstein Summation (einsum) Basics}
+
+\newpage
+
+\section{Advanced Einsum (Batch MatMul)}
+
+\newpage
+
+\section{Gradient of Sum}
+
+\newpage
+
+\section{Gradient of Matrix Multiplication}
+
+\newpage
+
+\section{One-Hot Encoding}
+
+\newpage
+
+\section{Softmax Implementation (stable)}
+
+\newpage
+
+\section{Cross-Entropy Loss (Manual)}
+
+\newpage
+
+\section{Numerical Stability (Log-Sum-Exp)}
+
+    
 \end{document}
+
