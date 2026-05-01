@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.12)  1 MAY 2026 14:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.12)  1 MAY 2026 14:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -781,27 +781,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--88
 
  []
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.89 ...s. Se implementÃ³ la funciÃ³n elementwise_
-                                                  ops(A,B) que recibe las ma...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.90 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (98.29984pt too wide) in paragraph at lines 89--90
-\T1/zpltlf/m/n/12 ple-men-tó la fun-ción elementwise$[]\OML/npxmi/m/it/12 ps\LMS/npxsy/m/n/12 ¹\OML/npxmi/m/it/12 A; B\LMS/npxsy/m/n/12 º\OML/npxmi/m/it/12 querecibelasmatricesAyByhacelassiguientesoperaciones:[] 
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
@@ -837,15 +816,15 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 19965 strings out of 474486
- 370916 string characters out of 5744699
+ 19961 strings out of 474486
+ 370864 string characters out of 5744699
  1935542 words of memory out of 5000000
- 41874 multiletter control sequences out of 15000+600000
+ 41870 multiletter control sequences out of 15000+600000
  614892 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,6n,107p,512b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\XPC\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1200.pk><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on main.pdf (17 pages, 128704 bytes).
+Output written on main.pdf (17 pages, 126596 bytes).
 PDF statistics:
  110 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
