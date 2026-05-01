@@ -99,31 +99,124 @@ sus propiedades asociadas.
 
 \section{Gradient of Sum}
 
-El gradiente por definicion es un vector 
+El \textit{gradiente}, por definición, es un vector que reúne todas las derivadas parciales de una función escalar multivariable
 
 \[
-\nabla f(x) = \left( \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n} \right)
+\nabla f(x) := \left( \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n} \right)
 \]
-el cual se toma como generalización multiplicable de la derivada convencional, que mide la dirección en la cual se da el mayor crecimiento (o decrecimiento en su negativa) con un vector que es ortogonal a la superficie de la función (siendo esta función diferenciable).
 
-Desde un punto de vista matemático, el algoritmo empieza de la suposición de que dado que las derivadas parciales de \(\displaystyle y = \sum_i x_i\) son iguales idénticas, ya que estas son funciones lineales; por regla de la cadena se tiene que 
+
+
+Este objeto matemático se interpreta como la generalización multivariable de la derivada convencional. 
+No solo mide cuánto cambia la función, sino que además señala la dirección en la cual se da el mayor crecimiento 
+(o decrecimiento si se toma su opuesto). En geometría diferencial, el gradiente es ortogonal a las superficies de nivel de la función, 
+lo que lo convierte en una herramienta fundamental para entender cómo se comporta la función en su entorno local.
+
+Desde un punto de vista matemático, el algoritmo parte de la suposición de que 
+
 \[
-\frac{\partial L}{\partial x_i} = \frac{\partial L}{\partial y} \frac{\partial y}{\partial x_i}  = \frac{\partial L}{\partial y}
+y = \sum_i x_i
 \]
-en cuyo caso \(\frac{\partial L}{\partial x_i}  = \text{grad\_y}\). 
 
-Gracias a que las derivadas parciales son iguales entre si, entonces el gradiente es simplemente el gradiente de y en cada una de las componentes del gradiente. Basta con tomar una matriz de dimensiones dadas y llenar todas las componentes con el valor del gradiente de y.
+
+cuyo gradiente tiene derivadas parciales idénticas entre sí, ya que cada componente contribuye linealmente. 
+Aplicando la regla de la cadena se obtiene
+
+\[
+\frac{\partial L}{\partial x_i} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial x_i} = \frac{\partial L}{\partial y}
+\]
+
+
+
+En este caso, cada derivada parcial respecto a \(x_i\) es simplemente el valor externo \(\text{grad\_y}\). 
+
+La consecuencia es que el gradiente respecto a \(x\) se construye llenando todas las componentes con el mismo valor. 
+Es decir, basta con tomar una matriz de dimensiones dadas y rellenar cada entrada con el gradiente de \(y\). 
+Este procedimiento refleja la simetría de la operación de suma: todos los elementos aportan de manera idéntica, 
+y por ello el gradiente se distribuye uniformemente en cada componente.
 
 
 \newpage
 
 \section{Gradient of Matrix Multiplication}
 
+Para este ejercicio se tiene que dadas dos matrices \(A\) de dimensión \(M \times K\) y \(B\) de dimensión \(K \times N\), y dada la definición del producto de matrices \(C = AB\) la cual nos dice que 
+
+\[
+C_{ij} = \sum_{k} A_{ik} B_{kj}
+\]
+
+donde \(C\) tiene dimensión \(M \times N\). Y dado la función de pérdida escalar \(L\) que depende de \(C\), y \(G = \frac{\partial L}{\partial C}\) como el gradiente de \(L\) con respecto a \(C\), también de dimensión \(M \times N\). El objetivo es calcular los gradientes \(\frac{\partial L}{\partial A}\) y \(\frac{\partial L}{\partial B}\).
+
+Matemáticamente, para obtener el gradiente con respecto a \(A\), se aplica la regla de la cadena entrada por entrada. Para el elemento \(A_{ik}\) se tiene 
+
+\[
+\frac{\partial L}{\partial A_{ik}} = \sum_{j=1}^{N} \frac{\partial L}{\partial C_{ij}} 
+\cdot \frac{\partial C_{ij}}{\partial A_{ik}}
+\]
+
+
+
+Dado que \(C_{ij} = \sum_{k} A_{ik} B_{kj}\), se tiene que 
+\(\frac{\partial C_{ij}}{\partial A_{ik}} = B_{kj}\), por lo que
+
+
+
+\[
+\frac{\partial L}{\partial A_{ik}} = \sum_{j=1}^{N} G_{ij} B_{kj} = 
+\sum_{j=1}^{N} G_{ij} (B^T)_{jk}
+\]
+
+
+
+Lo que en forma matricial equivale a
+
+
+
+\[
+\frac{\partial L}{\partial A} = G B^T
+\]
+
+
+
+De manera análoga, para el gradiente con respecto a \(B\)
+
+
+
+\[
+\frac{\partial L}{\partial B_{kj}} = \sum_{i=1}^{M} G_{ij} A_{ik} = 
+\sum_{i=1}^{M} (A^T)_{ki} G_{ij}
+\]
+
+
+
+Lo que en forma matricial equivale a
+
+
+
+\[
+\frac{\partial L}{\partial B} = A^T G
+\]
 
 
 \newpage
 
 \section{One-Hot Encoding}
+En este caso se tiene que, dado un vector de índices \([i_0, i_1, \ldots, i_{N-1}]\) de longitud \(N\), donde cada entero \(i_j\) satisface \(0 \leq i_j < C\), y dado el número total de clases \(C\), se desea construir una matriz \textit{one\_hot} de dimensión \(N \times C\). Matemáticamente, dicha matriz está definida entrada por entrada como
+
+\[
+\textit{one\_hot}[j, k] = 
+\begin{cases} 
+	1 & \text{si } k = i_j \\ 
+	0 & \text{en otro caso} 
+\end{cases}
+\]
+
+
+
+Donde \(j\) indexa la muestra y \(k\) indexa la clase. Así, cada fila de la matriz resultante es un vector binario con exactamente un \(1\) en la posición correspondiente a la clase verdadera de dicha muestra, y \(0\) en todas las demás posiciones.
+
+Este procedimiento refleja la idea fundamental de la codificación \textit{one-hot},transformar información categórica en una representación matemática que pueda ser procesada por algoritmos lineales y operaciones matriciales. Cada fila actúa como una “bandera” que señala la clase a la que pertenece la muestra, sin ambigüedad y sin introducir relaciones artificiales entre categorías distintas. 
 
 \newpage
 

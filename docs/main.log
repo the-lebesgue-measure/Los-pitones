@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.3)  1 MAY 2026 12:49
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.3)  1 MAY 2026 15:11
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1124,15 +1124,15 @@ L3 programming layer <2020/03/25>
 )
 
 Here is how much of LuaTeX's memory you used:
- 22054 strings out of 471925
+ 22060 strings out of 471925
  100000,953878 words of node,token memory allocated
- 559 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 18 attribute, 55 glue_spec
-, 11 attribute_list, 2 write nodes
-   avail lists: 1:1,2:339,3:87,4:24,5:498,6:21,7:7314,8:34,9:236,10:14,11:927
- 47935 multiletter control sequences out of 65536+600000
+ 607 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 34 attribute, 55 glue_spec
+, 19 attribute_list, 2 write nodes
+   avail lists: 1:1,2:339,3:87,4:24,5:498,6:28,7:7314,8:35,9:400,10:14,11:927
+ 47941 multiletter control sequences out of 65536+600000
  160 fonts using 13645535 bytes
- 102i,6n,101p,423b,300s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,9n,101p,447b,300s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Users/antho/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/U
 sers/antho/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}<C:/Us
 ers/antho/AppData/Local/Programs/MiKTeX/fonts/opentype/public/newpx/TeXGyrePagel
@@ -1145,7 +1145,7 @@ ams/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/antho/AppData/Local/Programs
 /MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/antho/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/antho/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/newtx/txexs.pfb>
-Output written on main.pdf (17 pages, 109950 bytes).
+Output written on main.pdf (17 pages, 121355 bytes).
 
 PDF statistics: 103 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
