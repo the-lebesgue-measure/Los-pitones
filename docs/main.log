@@ -1,432 +1,273 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.3)  1 MAY 2026 12:49
- restricted system commands enabled.
-**main.tex
-(./main.tex
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-04-14>
-Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
-Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
-Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended 
-collection.
-luaotfload | conf : Root cache directory is "C:/Users/antho/AppData/Local/MiKTeX
-/luatex-cache/generic/names".
-luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-res
-olved path "C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/luatex/luaotfload/f
-ontloader-2023-12-28.lua".
-Lua-only attribute luaotfload@noligature = 1
-luaotfload | init : Context OpenType loader version 3.134
-Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
-Inserting `luaotfload.node_processor' in `hpack_filter'.
-Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
-Inserting `luaotfload.define_font' in `define_font'.
-Lua-only attribute luaotfload_color_attribute = 2
-luaotfload | conf : Root cache directory is "C:/Users/antho/AppData/Local/MiKTeX
-/luatex-cache/generic/names".
-Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
-Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
-Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
-Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
-Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
-Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
-Inserting `luaotfload.cleanup_files' in `wrapup_run'.
-Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
-Inserting `luaotfload.glyphinfo' in `glyph_info'.
-Lua-only attribute luaotfload.letterspace_done = 3
-Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
-Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
-Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
-Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
-Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
-Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
-Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
-Inserting `tracingstacklevels' in `input_level_string'. (C:/Users/antho/AppData
-/Local/Programs/MiKTeX/tex/latex/base/article.cls
-Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/base/size12.clo
-File: size12.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
-luaotfload | db : Font names database loaded from C:/Users/antho/AppData/Local/M
-iKTeX/luatex-cache/generic/names/luaotfload-names.luc.gz)
-\c@part=\count270
-\c@section=\count271
-\c@subsection=\count272
-\c@subsubsection=\count273
-\c@paragraph=\count274
-\c@subparagraph=\count275
-\c@figure=\count276
-\c@table=\count277
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
-\bibindent=\dimen145
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.12)  1 MAY 2026 13:23
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"c:/Users/XPC/Desktop/UCR/VII SEMESTRE/HERRAMIENTAS II/ProyectoGrupal/Los-pitones/docs/main.tex"
+(c:/Users/XPC/Desktop/UCR/VII SEMESTRE/HERRAMIENTAS II/ProyectoGrupal/Los-pitones/docs/main.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+(C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty
-Package: babel 2025/04/29 v25.8 The multilingual framework for pdfLaTeX, LuaLaT
-eX and XeLaTeX
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/babel/luababel.def
-\bbl@readstream=\read2
-\l@afrikaans=\language2
-Package babel Info: Non-standard hyphenation setup on input line 118.
-\l@ancientgreek=\language3
-\l@armenian=\language4
-\l@assamese=\language5
-\l@basque=\language6
-\l@belarusian=\language7
-\l@bengali=\language8
-\l@bokmal=\language9
-\l@bulgarian=\language10
-\l@catalan=\language11
-\l@churchslavonic=\language12
-\l@classiclatin=\language13
-\l@coptic=\language14
-\l@croatian=\language15
-\l@czech=\language16
-\l@danish=\language17
-\l@dutch=\language18
-\l@esperanto=\language19
-\l@estonian=\language20
-\l@ethiopic=\language21
-\l@finnish=\language22
-\l@french=\language23
-\l@friulan=\language24
-\l@galician=\language25
-\l@georgian=\language26
-\l@german=\language27
-\l@greek=\language28
-\l@gujarati=\language29
-\l@hindi=\language30
-\l@hungarian=\language31
-\l@icelandic=\language32
-\l@indonesian=\language33
-\l@interlingua=\language34
-\l@irish=\language35
-\l@italian=\language36
-\l@kannada=\language37
-\l@kurmanji=\language38
-\l@latin=\language39
-\l@latvian=\language40
-\l@lithuanian=\language41
-\l@liturgicallatin=\language42
-\l@macedonian=\language43
-\l@malayalam=\language44
-\l@marathi=\language45
-\l@mongolian=\language46
-\l@mongolianlmc=\language47
-\l@monogreek=\language48
-\l@ngerman=\language49
-\l@nynorsk=\language50
-\l@occitan=\language51
-\l@oriya=\language52
-\l@pali=\language53
-\l@panjabi=\language54
-\l@piedmontese=\language55
-\l@polish=\language56
-\l@portuguese=\language57
-\l@romanian=\language58
-\l@romansh=\language59
-\l@russian=\language60
-\l@sanskrit=\language61
-\l@serbian=\language62
-\l@serbianc=\language63
-\l@slovak=\language64
-\l@slovenian=\language65
-\l@spanish=\language66
-\l@swedish=\language67
-\l@swissgerman=\language68
-\l@tamil=\language69
-\l@telugu=\language70
-\l@thai=\language71
-\l@turkish=\language72
-\l@turkmen=\language73
-\l@ukenglish=\language74
-\l@ukrainian=\language75
-\l@uppersorbian=\language76
-\l@usenglishmax=\language77
-\l@welsh=\language78
-\babelcatcodetablenum=\catcodetable14
-\bbl@pattcodes=\catcodetable15
-)
-\babel@savecnt=\count278
-\U@D=\dimen146
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count195
+\U@D=\dimen141
 \l@unhyphenated=\language79
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count196
 
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/babel/luababel.def
-\bbl@attr@locale=\attribute4
-)
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/arabi/bblopts.cfg
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
- babel
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/babel-spanish/spanish.l
-df
+(C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/babel/locale/es/babel
--spanish.tex
-Package babel Info: Importing font and identification data for spanish
-(babel)             from babel-es.ini. Reported on input line 11.
-)
 \es@quottoks=\toks17
-\es@quotdepth=\count279
+\es@quotdepth=\count197
 Package babel Info: Making " an active character on input line 570.
 Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/hyph-utf8/loadhyph/lo
-adhyph-es.tex UTF-8 Spanish hyphenation patterns
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/hyph-utf8/patterns/te
-x/hyph-es.tex))))
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/base/inputenc.sty
-Package: inputenc 2024/02/08 v1.3d Input encoding file
+)) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/es\babel-spanish.tex
+Package babel Info: Importing font and identification data for spanish
+(babel)             from babel-es.ini. Reported on input line 11.
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks18
 \inpenc@posthook=\toks19
-
-
-Package inputenc Warning: inputenc package ignored with utf8 based engines.
-
-) (C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/base/fontenc.sty
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
-6.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/lm/t1lmr.fd
-File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-))
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/newpx/newpxtext.sty
-Package: newpxtext 2025/06/07 v1.542 LaTeX and unicode LaTeX support for TeXGyr
-ePagellaX (Michael Sharpe)
-
-`newpxtext' v1.542, 2025/06/07 Text macros taking advantage of TeXGyre Pagella 
-and its extensions (msharpe)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/base/fontenc.sty
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\newpxtext.sty
+Package: newpxtext 2025/06/07 v1.542 LaTeX and unicode LaTeX support for TeXGyrePagellaX (Michael Sharpe)
+ `newpxtext' v1.542, 2025/06/07 Text macros taking advantage of TeXGyre Pagella and its extensions (msharpe) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/color.cfg
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: luatex.def on input line 274.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/graphics-def/luatex.def
-File: luatex.def 2024/04/13 v1.2e Graphics/color driver for luatex
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
-Package xcolor Info: Model `RGB' extended on input line 1365.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-) (C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-04-14 L3 programming layer (loader) 
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-lua
-tex.def
-File: l3backend-luatex.def 2025-04-14 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count280
-Inserting `l3color' in `luaotfload.parse_color'.))
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/xpatch\xpatch.sty (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2024-01-04 L3 programming layer (loader) 
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count198
+\l__pdf_internal_box=\box51
+))
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/l3packages/xparse/xpars
-e.sty
-Package: xparse 2024-08-16 L3 Experimental document command parser
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count281
-)) (C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/iftex/iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
+Package: xparse 2023-10-10 L3 Experimental document command parser
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count199
+)) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/xkeyval/xkeyval.tex
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/xkeyval/xkvutils.tex
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
 \XKV@toks=\toks20
 \XKV@tempa@toks=\toks21
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/xkeyval/keyval.tex))
-\XKV@depth=\count282
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\keyval.tex))
+\XKV@depth=\count266
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/base/textcomp.sty
-Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/xstring/xstring.tex
-\xs_counta=\count283
-\xs_countb=\count284
+)) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex
+\xs_counta=\count267
+\xs_countb=\count268
 )
 Package: xstring 2023/08/22 v1.86 String manipulations (CT)
-) (C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/base/ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty)
+LaTeX Font Info:    Setting zplLF sub-encoding to TS1/0 on input line 40.
+LaTeX Font Info:    Setting zplTLF sub-encoding to TS1/0 on input line 40.
+LaTeX Font Info:    Setting zplOsF sub-encoding to TS1/0 on input line 40.
+LaTeX Font Info:    Setting zplTOsF sub-encoding to TS1/0 on input line 40.
+\zpl@cnt=\count269
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/fontaxes\fontaxes.sty
+Package: fontaxes 2026-01-02 v2.0.2 Font selection axes (deprecated)
+Applying: [0000-00-00] Fall back to v1 on input line 76.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/fontaxes\fontaxes-v1.sty
+Package: fontaxes 2020/07/21 v1.0e Font selection axes
+LaTeX Info: Redefining \upshape on input line 29.
+LaTeX Info: Redefining \itshape on input line 31.
+LaTeX Info: Redefining \slshape on input line 33.
+LaTeX Info: Redefining \swshape on input line 35.
+LaTeX Info: Redefining \scshape on input line 37.
+LaTeX Info: Redefining \sscshape on input line 39.
+LaTeX Info: Redefining \ulcshape on input line 41.
+LaTeX Info: Redefining \textsw on input line 47.
+LaTeX Info: Redefining \textssc on input line 48.
+LaTeX Info: Redefining \textulc on input line 49.
+))
+\zpl@sixem=\dimen142
+\zpl@y=\dimen143
+\zpl@x=\dimen144
+\zpl@tmpdima=\dimen145
+\zpl@tmpdimb=\dimen146
+\zpl@tmpdimc=\dimen147
+\zpl@tmpdimd=\dimen148
+\zpl@tmpdime=\dimen149
+\zpl@tmpdimf=\dimen150
+\zpl@dimA=\dimen151
+\zpl@dimAA=\dimen152
+\zpl@dimB=\dimen153
+\zpl@dimBB=\dimen154
+\zpl@dimC=\dimen155
+LaTeX Info: Redefining \oldstylenums on input line 807.
+LaTeX Font Info:    Trying to load font information for T1+zplLF on input line 815.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zpllf.fd
+File: t1zpllf.fd 2021/05/25 v1.0 font definition file for T1/zpl/lf
 )
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/carlisle/scalefnt.sty)
-\zpl@cnt=\count285
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/fontspec/fontspec.sty
-Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
-Lua module: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/fontspec/fontspec-luate
-x.sty
-Package: fontspec-luatex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaT
-eX
-\l__fontspec_script_int=\count286
-\l__fontspec_language_int=\count287
-\l__fontspec_strnum_int=\count288
-\l__fontspec_tmp_int=\count289
-\l__fontspec_tmpa_int=\count290
-\l__fontspec_tmpb_int=\count291
-\l__fontspec_tmpc_int=\count292
-\l__fontspec_em_int=\count293
-\l__fontspec_emdef_int=\count294
-\l__fontspec_strong_int=\count295
-\l__fontspec_strongdef_int=\count296
-\l__fontspec_tmpa_dim=\dimen147
-\l__fontspec_tmpb_dim=\dimen148
-\l__fontspec_tmpc_dim=\dimen149
- (C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/fontspec/fontspec.cfg
-)))
-\zpl@sixem=\dimen150
-\zpl@y=\dimen151
-\zpl@x=\dimen152
-\zpl@tmpdima=\dimen153
-\zpl@tmpdimb=\dimen154
-\zpl@tmpdimc=\dimen155
-\zpl@tmpdimd=\dimen156
-\zpl@tmpdime=\dimen157
-\zpl@tmpdimf=\dimen158
-\zpl@dimA=\dimen159
-\zpl@dimAA=\dimen160
-\zpl@dimB=\dimen161
-\zpl@dimBB=\dimen162
-\zpl@dimC=\dimen163
-LaTeX Info: Redefining \oldstylenums on input line 798.
-LaTeX Info: Redefining \liningnums on input line 800.
-) (C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/newpx/newpxmath.sty
-Package: newpxmath 2025/10/30 v1.551 LaTeX math support for newpx (Michael Shar
-pe)
-`newpxmath' v1.551, 2025/10/30 Math macros based on pxfonts (msharpe)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2024/11/05 v2.17t AMS math features
-\@mathmargin=\skip51
+LaTeX Font Info:    Trying to load font information for T1+zplTLF on input line 816.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zpltlf.fd
+File: t1zpltlf.fd 2021/05/25 v1.0 font definition file for T1/zpl/tlf
+)
+LaTeX Font Info:    Trying to load font information for T1+zplOsF on input line 817.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zplosf.fd
+File: t1zplosf.fd 2021/05/25 v1.0 font definition file for T1/zpl/osf
+)
+LaTeX Font Info:    Trying to load font information for T1+zplTOsF on input line 818.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zpltosf.fd
+File: t1zpltosf.fd 2021/05/25 v1.0 font definition file for T1/zpl/tosf
+)) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\newpxmath.sty
+Package: newpxmath 2025/10/30 v1.551 LaTeX math support for newpx (Michael Sharpe)
+ `newpxmath' v1.551, 2025/10/30 Math macros based on pxfonts (msharpe) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip50
 
 For additional information on amsmath, use the `?' option.
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amstext.sty
+(C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsgen.sty
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks22
-\ex@=\dimen164
-))
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsbsy.sty
+\ex@=\dimen156
+)) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen165
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsopn.sty
+\pmbraise@=\dimen157
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count297
-LaTeX Info: Redefining \frac on input line 235.
-\uproot@=\count298
-\leftroot@=\count299
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count300
-\DOTSCASE@=\count301
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box53
-\strutbox@=\box54
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen166
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count302
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count303
-\dotsspace@=\muskip17
-\c@parentequation=\count304
-\dspbrk@lvl=\count305
+\inf@bad=\count270
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count271
+\leftroot@=\count272
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count273
+\DOTSCASE@=\count274
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen158
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count275
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count276
+\dotsspace@=\muskip16
+\c@parentequation=\count277
+\dspbrk@lvl=\count278
 \tag@help=\toks23
-\row@=\count306
-\column@=\count307
-\maxfields@=\count308
+\row@=\count279
+\column@=\count280
+\maxfields@=\count281
 \andhelp@=\toks24
-\eqnshift@=\dimen167
-\alignsep@=\dimen168
-\tagshift@=\dimen169
-\tagwidth@=\dimen170
-\totwidth@=\dimen171
-\lineht@=\dimen172
+\eqnshift@=\dimen159
+\alignsep@=\dimen160
+\tagshift@=\dimen161
+\tagwidth@=\dimen162
+\totwidth@=\dimen163
+\lineht@=\dimen164
 \@envbody=\toks25
-\multlinegap=\skip52
-\multlinetaggap=\skip53
+\multlinegap=\skip51
+\multlinetaggap=\skip52
 \mathdisplay@stack=\toks26
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/binhex/binhex.tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/oberdiek/centernot.sty
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/binhex\binhex.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/oberdiek\centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
 \px@tA=\toks27
 \px@tB=\toks28
 \px@su=\read3
-\px@Isdigit=\count309
+\px@Isdigit=\count282
+
 amsthm NOT loaded
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 224.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 224.
+(Font)                  OT1/cmr/m/n --> OT1/minzpl/m/n on input line 224.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/lmr/m/n on input line 224.
+(Font)                  OT1/cmr/bx/n --> OT1/minzpl/m/n on input line 224.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/m/n --> OT1/lmr/b/n on input line 225.
+(Font)                  OT1/minzpl/m/n --> OT1/minzpl/b/n on input line 225.
 LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 228.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 228.
+(Font)                  OT1/cmss/m/n --> T1/qhv/m/n on input line 228.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/m/n on input line 228.
+(Font)                  OT1/cmss/bx/n --> T1/qhv/m/n on input line 228.
 LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 229.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 229.
+(Font)                  OT1/cmr/m/it --> OT1/minzpl/m/it on input line 229.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/lmr/m/it on input line 229.
+(Font)                  OT1/cmr/bx/it --> OT1/minzpl/m/it on input line 229.
 LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 230.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 230.
+(Font)                  OT1/cmtt/m/n --> T1/npxtt/m/n on input line 230.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 230.
+(Font)                  OT1/cmtt/m/n --> T1/npxtt/m/n on input line 230.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 232.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/lmr/b/n on input line 232.
+(Font)                  OT1/cmr/bx/n --> OT1/minzpl/b/n on input line 232.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/lmr/b/n on input line 232.
+(Font)                  OT1/cmr/bx/n --> OT1/minzpl/b/n on input line 232.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/m/it --> OT1/lmr/b/it on input line 233.
+(Font)                  OT1/minzpl/m/it --> OT1/minzpl/b/it on input line 233.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 235.
+(Font)                  T1/qhv/m/n --> T1/qhv/b/n on input line 235.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  TU/lmtt/m/n --> TU/lmtt/b/n on input line 236.
+(Font)                  T1/npxtt/m/n --> T1/npxtt/b/n on input line 236.
 LaTeX Font Info:    Redeclaring symbol font `letters' on input line 247.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
 (Font)                  OML/cmm/m/it --> OML/npxmi/m/it on input line 247.
@@ -437,6 +278,8 @@ LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
 \symlettersA=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `lettersA' in version `bold'
 (Font)                  U/npxmia/m/it --> U/npxmia/b/it on input line 266.
+Now handling font encoding LMS ...
+... no UTF-8 mapping file for font encoding LMS
 LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 276.
 LaTeX Font Info:    Encoding `OMS' has changed to `LMS' for symbol font
 (Font)              `symbols' in the math version `normal' on input line 276.
@@ -454,25 +297,24 @@ LaTeX Font Info:    Overwriting symbol font `AMSm' in version `bold'
 \symsymbolsC=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `symbolsC' in version `bold'
 (Font)                  U/npxsyc/m/n --> U/npxsyc/b/n on input line 319.
+Now handling font encoding LMX ...
+... no UTF-8 mapping file for font encoding LMX
 LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 339.
 LaTeX Font Info:    Encoding `OMX' has changed to `LMX' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 3
-39.
+(Font)              `largesymbols' in the math version `normal' on input line 339.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/cmex/m/n --> LMX/npxexx/m/n on input line 339.
 LaTeX Font Info:    Encoding `OMX' has changed to `LMX' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 339
-.
+(Font)              `largesymbols' in the math version `bold' on input line 339.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> LMX/npxexx/m/n on input line 339.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  LMX/npxexx/m/n --> LMX/npxexx/b/n on input line 340.
 \symlargesymbolsPXA=\mathgroup7
 LaTeX Font Info:    Overwriting symbol font `largesymbolsPXA' in version `bold'
-
 (Font)                  U/npxexa/m/n --> U/npxexa/b/n on input line 347.
-\px@cntz=\count310
-\px@IsAlNum=\count311
+\px@cntz=\count283
+\px@IsAlNum=\count284
 \px@sbptoks=\toks29
 LaTeX Font Info:    Redeclaring math delimiter \lfloor on input line 502.
 LaTeX Font Info:    Redeclaring math delimiter \rfloor on input line 503.
@@ -500,457 +342,262 @@ LaTeX Font Info:    Redeclaring math accent \ddot on input line 574.
 LaTeX Font Info:    Redeclaring math accent \vec on input line 1631.
 LaTeX Info: Redefining \Bbbk on input line 2208.
 LaTeX Info: Redefining \not on input line 2548.
-) (C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/geometry/geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/iftex/ifvtex.sty
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count312
-\Gm@cntv=\count313
-\c@Gm@tempcnt=\count314
-\Gm@bindingoffset=\dimen173
-\Gm@wd@mp=\dimen174
-\Gm@odd@mp=\dimen175
-\Gm@even@mp=\dimen176
-\Gm@layoutwidth=\dimen177
-\Gm@layoutheight=\dimen178
-\Gm@layouthoffset=\dimen179
-\Gm@layoutvoffset=\dimen180
+\Gm@cnth=\count285
+\Gm@cntv=\count286
+\c@Gm@tempcnt=\count287
+\Gm@bindingoffset=\dimen165
+\Gm@wd@mp=\dimen166
+\Gm@odd@mp=\dimen167
+\Gm@even@mp=\dimen168
+\Gm@layoutwidth=\dimen169
+\Gm@layoutheight=\dimen170
+\Gm@layouthoffset=\dimen171
+\Gm@layoutvoffset=\dimen172
 \Gm@dimlist=\toks30
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/geometry/geometry.cfg)) (C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/titlesec/titlesec.sty
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
-\ttl@box=\box55
-\beforetitleunit=\skip54
-\aftertitleunit=\skip55
-\ttl@plus=\dimen181
-\ttl@minus=\dimen182
+\ttl@box=\box54
+\beforetitleunit=\skip53
+\aftertitleunit=\skip54
+\ttl@plus=\dimen173
+\ttl@minus=\dimen174
 \ttl@toksa=\toks31
-\titlewidth=\dimen183
-\titlewidthlast=\dimen184
-\titlewidthfirst=\dimen185
-) (C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/csquotes/csquotes.sty
+\titlewidth=\dimen175
+\titlewidthlast=\dimen176
+\titlewidthfirst=\dimen177
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.sty
 Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
-\csq@reset=\count315
-\csq@gtype=\count316
-\csq@glevel=\count317
-\csq@qlevel=\count318
-\csq@maxlvl=\count319
-\csq@tshold=\count320
+\csq@reset=\count288
+\csq@gtype=\count289
+\csq@glevel=\count290
+\csq@qlevel=\count291
+\csq@maxlvl=\count292
+\csq@tshold=\count293
 \csq@ltx@everypar=\toks32
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/csquotes/csquotes.def
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.def
 File: csquotes.def 2024-04-04 v5.2o csquotes generic definitions (JAW)
 )
 Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/csquotes/csquotes.cfg
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.cfg
 File: csquotes.cfg 
 )
 Package csquotes Info: Enabling multilingual quotes.
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/pgf/frontendlayer/tikz.
-sty
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/pgf/basiclayer/pgf.sty
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/pgf/utilities/pgfrcs.st
-y
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgfutil
--common.tex
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
 \pgfutil@everybye=\toks33
-\pgfutil@tempdima=\dimen186
-\pgfutil@tempdimb=\dimen187
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgfutil
--latex.def
-\pgfutil@abb=\box56
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgfrcs.
-code.tex
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/pgf.revision.tex)
+\pgfutil@tempdima=\dimen178
+\pgfutil@tempdimb=\dimen179
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def
+\pgfutil@abb=\box55
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.code.tex (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
 Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
 ))
 Package: pgf 2023-01-15 v3.1.10 (3.1.10)
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/pgf/basiclayer/pgfcore.
-sty
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphicx.sty
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.sty (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/graphics/trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/graphics.c
-fg
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: luatex.def on input line 106.
+Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen188
-\Gin@req@width=\dimen189
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/pgf/systemlayer/pgfsys.
-sty
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/systemlayer/pgfsy
-s.code.tex
+\Gin@req@height=\dimen180
+\Gin@req@width=\dimen181
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgfkeys
-.code.tex
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks34
 \pgfkeys@temptoks=\toks35
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgfkeys
-libraryfiltered.code.tex
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.tex
 \pgfkeys@tmptoks=\toks36
 ))
-\pgf@x=\dimen190
-\pgf@y=\dimen191
-\pgf@xa=\dimen192
-\pgf@ya=\dimen193
-\pgf@xb=\dimen194
-\pgf@yb=\dimen195
-\pgf@xc=\dimen196
-\pgf@yc=\dimen197
-\pgf@xd=\dimen198
-\pgf@yd=\dimen199
+\pgf@x=\dimen182
+\pgf@y=\dimen183
+\pgf@xa=\dimen184
+\pgf@ya=\dimen185
+\pgf@xb=\dimen186
+\pgf@yb=\dimen187
+\pgf@xc=\dimen188
+\pgf@yc=\dimen189
+\pgf@xd=\dimen190
+\pgf@yd=\dimen191
 \w@pgf@writea=\write3
 \r@pgf@reada=\read4
-\c@pgf@counta=\count321
-\c@pgf@countb=\count322
-\c@pgf@countc=\count323
-\c@pgf@countd=\count324
+\c@pgf@counta=\count294
+\c@pgf@countb=\count295
+\c@pgf@countc=\count296
+\c@pgf@countd=\count297
 \t@pgf@toka=\toks37
 \t@pgf@tokb=\toks38
 \t@pgf@tokc=\toks39
-\pgf@sys@id@count=\count325
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/systemlayer/pgf.c
-fg
+\pgf@sys@id@count=\count298
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
-Driver file for pgf: pgfsys-luatex.def
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/systemlayer/pgfsy
-s-luatex.def
-File: pgfsys-luatex.def 2023-01-15 v3.1.10 (3.1.10)
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/systemlayer/pgfsy
-s-common-pdf.def
+Driver file for pgf: pgfsys-pdftex.def
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
-)))
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/systemlayer/pgfsy
-ssoftpath.code.tex
+))) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count326
-\pgfsyssoftpath@bigbuffer@items=\count327
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/systemlayer/pgfsy
-sprotocol.code.tex
+\pgfsyssoftpath@smallbuffer@items=\count299
+\pgfsyssoftpath@bigbuffer@items=\count300
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-e.code.tex
+)) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmath.code
-.tex
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathutil.
-code.tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathparse
-r.code.tex
-\pgfmath@dimen=\dimen256
-\pgfmath@count=\count328
-\pgfmath@box=\box57
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen192
+\pgfmath@count=\count301
+\pgfmath@box=\box56
 \pgfmath@toks=\toks40
 \pgfmath@stack@operand=\toks41
 \pgfmath@stack@operation=\toks42
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfunct
-ions.code.tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfunct
-ions.basic.code.tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfunct
-ions.trigonometric.code.tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfunct
-ions.random.code.tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfunct
-ions.comparison.code.tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfunct
-ions.base.code.tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfunct
-ions.round.code.tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfunct
-ions.misc.code.tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfunct
-ions.integerarithmetics.code.tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathcalc.
-code.tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfloat
-.code.tex
-\c@pgfmathroundto@lastzeros=\count329
-))
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfint.code.
-tex)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-epoints.code.tex
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count302
+)) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.tex) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen257
-\pgf@picmaxx=\dimen258
-\pgf@picminy=\dimen259
-\pgf@picmaxy=\dimen260
-\pgf@pathminx=\dimen261
-\pgf@pathmaxx=\dimen262
-\pgf@pathminy=\dimen263
-\pgf@pathmaxy=\dimen264
-\pgf@xx=\dimen265
-\pgf@xy=\dimen266
-\pgf@yx=\dimen267
-\pgf@yy=\dimen268
-\pgf@zx=\dimen269
-\pgf@zy=\dimen270
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-epathconstruct.code.tex
+\pgf@picminx=\dimen193
+\pgf@picmaxx=\dimen194
+\pgf@picminy=\dimen195
+\pgf@picmaxy=\dimen196
+\pgf@pathminx=\dimen197
+\pgf@pathmaxx=\dimen198
+\pgf@pathminy=\dimen199
+\pgf@pathmaxy=\dimen256
+\pgf@xx=\dimen257
+\pgf@xy=\dimen258
+\pgf@yx=\dimen259
+\pgf@yy=\dimen260
+\pgf@zx=\dimen261
+\pgf@zy=\dimen262
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen271
-\pgf@path@lasty=\dimen272
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-epathusage.code.tex
+\pgf@path@lastx=\dimen263
+\pgf@path@lasty=\dimen264
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen273
-\pgf@shorten@start@additional=\dimen274
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-escopes.code.tex
+\pgf@shorten@end@additional=\dimen265
+\pgf@shorten@start@additional=\dimen266
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box58
-\pgf@hbox=\box59
-\pgf@layerbox@main=\box60
-\pgf@picture@serial@count=\count330
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-egraphicstate.code.tex
+\pgfpic=\box57
+\pgf@hbox=\box58
+\pgf@layerbox@main=\box59
+\pgf@picture@serial@count=\count303
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen275
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-etransformations.code.tex
+\pgflinewidth=\dimen267
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen276
-\pgf@pt@y=\dimen277
-\pgf@pt@temp=\dimen278
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-equick.code.tex
+\pgf@pt@x=\dimen268
+\pgf@pt@y=\dimen269
+\pgf@pt@temp=\dimen270
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-eobjects.code.tex
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
 File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-epathprocessing.code.tex
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.tex
 File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-earrows.code.tex
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen279
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-eshade.code.tex
+\pgfarrowsep=\dimen271
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen280
-\pgf@sys@shading@range@num=\count331
-\pgf@shadingcount=\count332
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-eimage.code.tex
+\pgf@max=\dimen272
+\pgf@sys@shading@range@num=\count304
+\pgf@shadingcount=\count305
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-eexternal.code.tex
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box61
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-elayers.code.tex
+\pgfexternal@startupbox=\box60
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-etransparency.code.tex
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
 File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-epatterns.code.tex
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
 File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
-erdf.code.tex
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
 File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)))
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/modules/pgfmodule
-shapes.code.tex
+))) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box62
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/modules/pgfmodule
-plot.code.tex
+\pgfnodeparttextbox=\box61
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/pgf/compatibility/pgfco
-mp-version-0-65.sty
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen281
-\pgf@nodesepend=\dimen282
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/pgf/compatibility/pgfco
-mp-version-1-18.sty
+\pgf@nodesepstart=\dimen273
+\pgf@nodesepend=\dimen274
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
-))
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/pgf/utilities/pgffor.st
-y
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/pgf/utilities/pgfkeys.s
-ty
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgfkeys
-.code.tex))
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/pgf/math/pgfmath.sty
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmath.code
-.tex))
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgffor.
-code.tex
+)) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.sty (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex)) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex)) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen283
-\pgffor@skip=\dimen284
+\pgffor@iter=\dimen275
+\pgffor@skip=\dimen276
 \pgffor@stack=\toks43
 \pgffor@toks=\toks44
-))
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tik
-z/tikz.code.tex
+)) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/libraries/pgflibr
-aryplothandlers.code.tex
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count333
-\pgfplotmarksize=\dimen285
+\pgf@plot@mark@count=\count306
+\pgfplotmarksize=\dimen277
 )
-\tikz@lastx=\dimen286
-\tikz@lasty=\dimen287
-\tikz@lastxsaved=\dimen288
-\tikz@lastysaved=\dimen289
-\tikz@lastmovetox=\dimen290
-\tikz@lastmovetoy=\dimen291
-\tikzleveldistance=\dimen292
-\tikzsiblingdistance=\dimen293
-\tikz@figbox=\box63
-\tikz@figbox@bg=\box64
-\tikz@tempbox=\box65
-\tikz@tempbox@bg=\box66
-\tikztreelevel=\count334
-\tikznumberofchildren=\count335
-\tikznumberofcurrentchild=\count336
-\tikz@fig@count=\count337
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/modules/pgfmodule
-matrix.code.tex
+\tikz@lastx=\dimen278
+\tikz@lasty=\dimen279
+\tikz@lastxsaved=\dimen280
+\tikz@lastysaved=\dimen281
+\tikz@lastmovetox=\dimen282
+\tikz@lastmovetoy=\dimen283
+\tikzleveldistance=\dimen284
+\tikzsiblingdistance=\dimen285
+\tikz@figbox=\box62
+\tikz@figbox@bg=\box63
+\tikz@tempbox=\box64
+\tikz@tempbox@bg=\box65
+\tikztreelevel=\count307
+\tikznumberofchildren=\count308
+\tikznumberofcurrentchild=\count309
+\tikz@fig@count=\count310
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count338
-\pgfmatrixcurrentcolumn=\count339
-\pgf@matrix@numberofcolumns=\count340
+\pgfmatrixcurrentrow=\count311
+\pgfmatrixcurrentcolumn=\count312
+\pgf@matrix@numberofcolumns=\count313
 )
-\tikz@expandcount=\count341
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tik
-z/libraries/tikzlibrarytopaths.code.tex
+\tikz@expandcount=\count314
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)))
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tik
-z/libraries/tikzlibrarypositioning.code.tex
+))) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tik
-z/libraries/tikzlibrarybabel.code.tex
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarybabel.code.tex
 File: tikzlibrarybabel.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tik
-z/libraries/tikzlibrarycalc.code.tex
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/newpx/TeXGyrePagellaX.f
-ontspec)
-
-Package fontspec Info: 
-(fontspec)             Font family 'TeXGyrePagellaX(0)' created for font
-(fontspec)             'TeXGyrePagellaX' with options [Ligatures=TeX,Extension
-(fontspec)             = .otf,UprightFont = TeXGyrePagellaX-Regular,BoldFont =
-(fontspec)             TeXGyrePagellaX-Bold,ItalicFont =
-(fontspec)             TeXGyrePagellaX-Italic,BoldItalicFont =
-(fontspec)             TeXGyrePagellaX-BoldItalic,SlantedFont =
-(fontspec)             TeXGyrePagellaX-Slanted,BoldSlantedFont =
-(fontspec)             TeXGyrePagellaX-BoldSlanted,Numbers =
-(fontspec)             {Monospaced,Lining}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[TeXGyrePagellaX-Regular.otf]:mode=node;script=latn;
-language=dflt;+tlig;+tnum;+lnum;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->"[TeXGyrePagellaX-Regular.otf]:mode=node;script=latn;
-language=dflt;+tlig;+tnum;+lnum;+smcp;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"[TeXGyrePagellaX-Bold.otf]:mode=node;script=latn;lan
-guage=dflt;+tlig;+tnum;+lnum;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->"[TeXGyrePagellaX-Bold.otf]:mode=node;script=latn;lan
-guage=dflt;+tlig;+tnum;+lnum;+smcp;"
-(fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->"[TeXGyrePagellaX-Italic.otf]:mode=node;script=latn;l
-anguage=dflt;+tlig;+tnum;+lnum;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->"[TeXGyrePagellaX-Italic.otf]:mode=node;script=latn;l
-anguage=dflt;+tlig;+tnum;+lnum;+smcp;"
-(fontspec)             - 'slanted' (m/sl) with NFSS spec.:
-(fontspec)             <->"[TeXGyrePagellaX-Slanted.otf]:mode=node;script=latn;
-language=dflt;+tlig;+tnum;+lnum;"
-(fontspec)             - 'slanted small caps'  (m/scsl) with NFSS spec.:
-(fontspec)             <->"[TeXGyrePagellaX-Slanted.otf]:mode=node;script=latn;
-language=dflt;+tlig;+tnum;+lnum;+smcp;"
-(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->"[TeXGyrePagellaX-BoldItalic.otf]:mode=node;script=la
-tn;language=dflt;+tlig;+tnum;+lnum;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->"[TeXGyrePagellaX-BoldItalic.otf]:mode=node;script=la
-tn;language=dflt;+tlig;+tnum;+lnum;+smcp;"
-(fontspec)             - 'bold slanted' (b/sl) with NFSS spec.:
-(fontspec)             <->"[TeXGyrePagellaX-BoldSlanted.otf]:mode=node;script=l
-atn;language=dflt;+tlig;+tnum;+lnum;"
-(fontspec)             - 'bold slanted small caps'  (b/scsl) with NFSS spec.:
-(fontspec)             <->"[TeXGyrePagellaX-BoldSlanted.otf]:mode=node;script=l
-atn;language=dflt;+tlig;+tnum;+lnum;+smcp;"
-
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 12.0pt on input line 36.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
- (./main.aux
+ (main.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
-Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported  on input line 8.
 )
-\openout1 = main.aux
+\openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 36.
-LaTeX Font Info:    Trying to load font information for OML+npxmi on input line
- 36.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/newpx/omlnpxmi.fd
+LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 36.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\omlnpxmi.fd
 File: omlnpxmi.fd 2013/03/21 Fontinst v1.933 font definitions for OML/npxmi.
 )
 LaTeX Font Info:    ... okay on input line 36.
@@ -962,69 +609,56 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 36.
-LaTeX Font Info:    Trying to load font information for U+npxexa on input line 
-36.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/newpx/unpxexa.fd
+LaTeX Font Info:    Trying to load font information for U+npxexa on input line 36.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxexa.fd
 File: unpxexa.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxexa.
 )
 LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 36.
-LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line
- 36.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/newpx/lmsnpxsy.fd
+LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 36.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmsnpxsy.fd
 File: lmsnpxsy.fd 2016/07/04 Fontinst v1.933 font definitions for LMS/npxsy.
 )
 LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 36.
-LaTeX Font Info:    Trying to load font information for LMX+npxexx on input lin
-e 36.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/newpx/lmxnpxexx.fd
+LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 36.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmxnpxexx.fd
 File: lmxnpxexx.fd 2016/07/04 Fontinst v1.933 font definitions for LMX/npxexx.
 )
 LaTeX Font Info:    ... okay on input line 36.
 LaTeX Info: Redefining \. on input line 36.
 LaTeX Info: Redefining \% on input line 36.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mk
-ii
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count342
-\scratchdimen=\dimen294
-\scratchbox=\box67
-\nofMPsegments=\count343
-\nofMParguments=\count344
+\scratchcounter=\count315
+\scratchdimen=\dimen286
+\scratchbox=\box66
+\nofMPsegments=\count316
+\nofMParguments=\count317
 \everyMPshowfont=\toks45
-\MPscratchCnt=\count345
-\MPscratchDim=\dimen295
-\MPnumerator=\count346
-\makeMPintoPDFobject=\count347
+\MPscratchCnt=\count318
+\MPscratchDim=\dimen287
+\MPnumerator=\count319
+\makeMPintoPDFobject=\count320
 \everyMPtoPDFconversion=\toks46
-)
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-b
-ase.sty
+) (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/00miktex/epstopdf-sys.c
-fg
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
+\c@mv@tabular=\count321
+\c@mv@boldtabular=\count322
 LaTeX Info: Command `\dddot' is already robust on input line 36.
 LaTeX Info: Command `\ddddot' is already robust on input line 36.
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: luatex
+*geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
-* driver: luatex
+* driver: pdftex
 * paper: letterpaper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -1055,99 +689,76 @@ LaTeX Info: Command `\ddddot' is already robust on input line 36.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-8.
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 20.74pt on input line 38.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 14.4pt on input line 38.
+LaTeX Font Info:    Trying to load font information for OT1+minzpl on input line 38.
+(C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\ot1minzpl.fd
+File: ot1minzpl.fd 2021/05/25 v1.0 font definition file for OT1/minzpl/TLF
 )
-LaTeX Font Info:    Trying to load font information for U+npxmia on input line 
-38.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/newpx/unpxmia.fd
+LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
+(Font)              scaled to size 14.4pt on input line 38.
+LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
+(Font)              scaled to size 10.5pt on input line 38.
+LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
+(Font)              scaled to size 7.9pt on input line 38.
+LaTeX Font Info:    Trying to load font information for U+npxmia on input line 38.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxmia.fd
 File: unpxmia.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+npxsym on input line 
-38.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/newpx/unpxsym.fd
+LaTeX Font Info:    Trying to load font information for U+npxsym on input line 38.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsym.fd
 File: unpxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/npxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 
-38.
-
-(C:/Users/antho/AppData/Local/Programs/MiKTeX/tex/latex/newpx/unpxsyc.fd
+LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 38.
+ (C:\Users\XPC\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsyc.fd
 File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
-)
+) [1
 
-[1
-
-{C:/Users/antho/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-
-[2]
-
-[3]
-
-[4]
-
-[5]
-
-[6]
-
-[7]
-
-[8]
-
-[9]
-
-[10]
-
-[11]
-
-[12]
-
-[13]
-
-[14]
-
-[15]
-
-[16]
-
-[17] (./main.aux
+{C:/Users/XPC/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}]
+LaTeX Font Info:    Font shape `T1/zpltlf/m/sc' will be
+(Font)              scaled to size 14.4pt on input line 43.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
+(Font)              scaled to size 12.0pt on input line 47.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 8.8pt on input line 50.
+ [2{C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}]
+Package textcomp Info: Symbol \textasciiacute not provided by
+(textcomp)             font family zpltlf in TS1 encoding.
+(textcomp)             Default family used instead on input line 65.
+ [3] [4] [5] [6] [7] [8] [9] [10]
+LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
+(Font)              scaled to size 12.0pt on input line 104.
+LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
+(Font)              scaled to size 8.8pt on input line 104.
+LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
+(Font)              scaled to size 6.6pt on input line 104.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 6.6pt on input line 113.
+ [11{C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}{C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}] [12] [13]
+Missing character: There is no Ÿ in font zpl-Regular-tlf-ot1!
+[14] [15] [16] [17] (main.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
  ***********
-LaTeX2e <2024-11-01> patch level 2
+LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
-)
-
-Here is how much of LuaTeX's memory you used:
- 22054 strings out of 471925
- 100000,953878 words of node,token memory allocated
- 559 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 18 attribute, 55 glue_spec
-, 11 attribute_list, 2 write nodes
-   avail lists: 1:1,2:339,3:87,4:24,5:498,6:21,7:7314,8:34,9:236,10:14,11:927
- 47935 multiletter control sequences out of 65536+600000
- 160 fonts using 13645535 bytes
- 102i,6n,101p,423b,300s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{C:/Users/antho/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/U
-sers/antho/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}<C:/Us
-ers/antho/AppData/Local/Programs/MiKTeX/fonts/opentype/public/newpx/TeXGyrePagel
-laX-Italic.otf><C:/Users/antho/AppData/Local/Programs/MiKTeX/fonts/opentype/publ
-ic/newpx/TeXGyrePagellaX-Regular.otf><C:/Users/antho/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/antho/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/antho/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/antho/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/antho/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/antho/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/antho/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/newtx/txexs.pfb>
-Output written on main.pdf (17 pages, 109950 bytes).
-
-PDF statistics: 103 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 131072)
- 16 words of extra memory for PDF output out of 10000 (max. 100000000)
+ ) 
+Here is how much of TeX's memory you used:
+ 19958 strings out of 474486
+ 370790 string characters out of 5744699
+ 1935542 words of memory out of 5000000
+ 41867 multiletter control sequences out of 15000+600000
+ 614892 words of font info for 113 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 102i,6n,107p,512b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\XPC\AppData\Local\MiKTeX\fonts/pk/modeless/public/newtx/dpi758\txexs.pk> <C:\Users\XPC\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1200.pk><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
+Output written on main.pdf (17 pages, 121890 bytes).
+PDF statistics:
+ 113 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
