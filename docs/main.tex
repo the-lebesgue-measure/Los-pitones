@@ -102,7 +102,7 @@ División: $a_{ij} * b_{ij} + \epsilon$, es decir, divide entrada por entrada y 
 El redimensionamiento y la transposición de tensores son operaciones fundamentales en el aprendizaje profundo, especialmente cuando se trabaja con datos 
 multidimensionales como imágenes, secuencias y lotes. Estas operaciones nos permiten: \\ 
 
-Conversión de formato : Cambiar entre diferentes diseños de memoria (por ejemplo, NCHW frente a NHWC para imágenes). \\ \\ 
+\noindent Conversión de formato : Cambiar entre diferentes diseños de memoria (por ejemplo, NCHW frente a NHWC para imágenes). \\ \\ 
 Manipulación de dimensiones : Reorganizar los datos para que sean compatibles con diferentes tipos de capas. \\ \\ 
 Procesamiento por lotes : Reestructurar los datos aplanados para convertirlos nuevamente en lotes estructurados. \\ \\ 
 Compatibilidad de API : Adaptar los formatos de entrada esperados para diferentes frameworks (PyTorch usa NCHW, TensorFlow usa NHWC). \\ \\  
@@ -126,6 +126,13 @@ que era el objetivo.
 \newpage
 
 \section{Einstein Summation (einsum) Basics}
+
+La notación de suma de Einstein (np.einsum) es una de las herramientas más potentes y expresivas de NumPy para operaciones con tensores. 
+Proporciona una forma concisa y matemáticamente elegante de especificar contracciones, reducciones y transformaciones complejas de tensores mediante una notación de cadena sencilla.
+
+Para esto, se implementó una función donde para la transpuesta, suma de todos los elementos de la matriz, suma de  filas, suma de columnas y producto matricial, se hace el juego de los 
+índices. Por ejemplo en la transpuesta, basta con intercambiar los i con los j. Aprender este juego con los índices con la función einsum hace mucho más eficientes muchos procesos. 
+
 
 \newpage
 
