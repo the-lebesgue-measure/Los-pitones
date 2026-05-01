@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.12)  1 MAY 2026 13:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.12)  1 MAY 2026 14:36
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **"c:/Users/XPC/Desktop/UCR/VII SEMESTRE/HERRAMIENTAS II/ProyectoGrupal/Los-pitones/docs/main.tex"
 (c:/Users/XPC/Desktop/UCR/VII SEMESTRE/HERRAMIENTAS II/ProyectoGrupal/Los-pitones/docs/main.tex
@@ -727,16 +726,47 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 Package textcomp Info: Symbol \textasciiacute not provided by
 (textcomp)             font family zpltlf in TS1 encoding.
 (textcomp)             Default family used instead on input line 65.
- [3] [4] [5] [6] [7] [8] [9] [10]
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.75     C_
+           {ij} = \sum_{k=1}^{n} A_{ik} \, B_{kj}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 12.0pt on input line 104.
+(Font)              scaled to size 12.0pt on input line 75.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 8.8pt on input line 104.
+(Font)              scaled to size 8.8pt on input line 75.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 6.6pt on input line 104.
+(Font)              scaled to size 6.6pt on input line 75.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.76 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[3{C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}] [4] [5] [6] [7] [8] [9] [10]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 6.6pt on input line 113.
- [11{C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}{C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}] [12] [13]
+(Font)              scaled to size 6.6pt on input line 126.
+ [11{C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}] [12] [13]
 Missing character: There is no Ÿ in font zpl-Regular-tlf-ot1!
 [14] [15] [16] [17] (main.aux
 LaTeX Info: Redefining \. on input line 8.
@@ -748,17 +778,17 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 19958 strings out of 474486
- 370790 string characters out of 5744699
+ 19961 strings out of 474486
+ 370864 string characters out of 5744699
  1935542 words of memory out of 5000000
- 41867 multiletter control sequences out of 15000+600000
+ 41870 multiletter control sequences out of 15000+600000
  614892 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,6n,107p,512b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\XPC\AppData\Local\MiKTeX\fonts/pk/modeless/public/newtx/dpi758\txexs.pk> <C:\Users\XPC\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1200.pk><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on main.pdf (17 pages, 121890 bytes).
+ <C:\Users\XPC\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1200.pk><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/XPC/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
+Output written on main.pdf (17 pages, 125220 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
+ 110 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

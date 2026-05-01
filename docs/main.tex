@@ -62,16 +62,19 @@ de la matriz (dicha fila es un vector). A grandes rasgos, se están haciendo var
 En esta sección se exploran dos formas de programar una función 
 que calcule el producto de dos matrices (con las dimensiones adecuadas). La primera forma
 consiste en usar únicamente las propiedades del paquete básico de Python, mientras que la otra 
-forma utiliza únicamente las funciones optimizadas del paquete \textit{NumPy´s}.
+forma utiliza únicamente las funciones optimizadas del paquete \textit{NumPy´s}. \\ 
 
 Cabe destacar que este producto punto es el mismo que se estudió en el curso de Algebra Lineal, con todas
-sus propiedades asociadas.
+sus propiedades asociadas. \\ 
 
 Para la primera función que se usaron los ciclos, se deben saber obviamente las dimensiones de las matrices para que se pueda hacer el producto matricial, 
-luego se hace una matriz llena de ceros con esas dimensiones y se va llenando con el producto matricial entre las dos matrices tradicional que se estudió en Álgebra Lineal.
+luego se hace una matriz llena de ceros con esas dimensiones y se va llenando con el producto matricial entre las dos matrices tradicional que se estudió en Álgebra Lineal. \\ 
 
-C_{ij} = \sum_{k=1}^{n} A_{ik} \, B_{kj}
+\begin{centering}
 
+    C_{ij} = \sum_{k=1}^{n} A_{ik} \, B_{kj}
+
+\end {centering}
 
 Para la segunda función, se utilizó únicamente el \textit{np.dot()}, función de Numpy la cual permite obtener el produto matricial sin bucles y lo hace directamente. 
 
