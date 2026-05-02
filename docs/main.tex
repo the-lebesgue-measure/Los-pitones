@@ -43,7 +43,7 @@
 
 \section{Tensor Broadcasting Basics}
 
-En el contexto matemático, se define un objeto algebraico que define
+En el contexto matemático, se define un tensor como un objeto algebraico
 que describe la relación multilinear entre conjuntos de objetos algebraicos asociados
 a un espacio vectorial. Esta sección afirma que en el contexto de \textit{Machine Learning} 
 se acostumbra a manipular tensores con formas variadas. A su vez, presenta un mecanismo llamado \textit{Broadcasting}, que permite 
@@ -257,9 +257,47 @@ calcular números más grandes que 1).
 
 \section{Cross-Entropy Loss (Manual)}
 
+Se describe la función de pérdida \textit{Cross-entropy loss} como la función más usada al momento de 
+realizar tareas de clasificación en el contexto de redes neuronales. Esta función permite cuantificar el error entre 
+la función de distribución de probabilidad obtenida con el modelo y la distribución verdadera. Esto es fundamental, por ejemplo, al momento de 
+identificar imágenes. Sin esta función, las redes neuronales no podrían ser entrenadas para clasificar datos de manera eficiente.
+
+Esta función requiere dos parámetros: \begin{enumerate}
+    \item \textit{Predicted distribution:} Un vector de la forma $p=[p_1, p_2, \dots, p_C]$ obtenid a partir de la función \textit{softmax}.
+    \item \textit{True distribution:} Un vector tal que identifica la "característica verdadera" (vale 1.0 para la característica verdadera, y 0 para las demás).
+\end{enumerate}
+
+Así, para una característica $y$ se define la función \textit{cross-entropy} como: 
+$$H(p,y)=-log(p_y)$$ El logarítmo aparece con el fin de medir la entropía (llamada informalmente como la medida de sorpresa de un resultado). Así, una probabilidad baja implica una "mayor sorpresa" (mayor pérdida).
+
+Así, dadas $N$ muestras, se define la pérdida total como: 
+$$\text{Loss } = -\frac{1}{N}\sum_{i=1}^N \log(p_{i,y_i}+\varepsilon)$$
+
+donde $p_{i,y_i}$ es la probabilidad que el modelo le asigna a la característica correcta $y_i$ para la i-ésima muestra. Note que la pérdida total es simplemente el promedio de las pérdidas. 
+Note que dentro del logaritmo hay una constante $\varepsilon>0$, esto con el fin de evitar que el logarítmo se evalúe en 0 (esto es necesario pues, si $p_{i,y_i}=0$ entonces $\log(p_{i,y_i})\rightarrow -\infty$, lo que causaría un \textit{overflow}).
+ 
+
 \newpage
 
 \section{Numerical Stability (Log-Sum-Exp)}
+
+En esta sección se describe un método para calcular números de la forma: 
+$$\log\left( \sum_{i=1}^n e^{x_i} \right)$$
+con el fin de evitar un \textit{overflow}, pues las funciones exponenciales son reconocidas por crecer sumamente rápido.
+
+Esto último es relevante pues, de acuerdo a la información brindada por la página \textit{Papercode}, la expresión anterior
+suele aparecer con gran frecuencia en el contexto de \textit{Machine Learning}, por ejemplo al aplicar el logaritmo a una función \textit{softmax}. 
+
+El método consiste en aprovechar la siguiente identidad matemática: 
+
+$$\log\left( \sum_{i=1}^n e^{x_i} \right) = \max(x) + \log\left( \sum_{i=1}^n e^{x_i-\max(x)} \right)$$
+
+Donde $\sum_{i=1}^n e^{x_i}$ es la suma de las función $exp(x)$ aplicada a los elemento de la i-esima fila de una matriz. Luego, $\max(x)$ es el máximo de los elementos de la fila mencionada anteriormente.
+
+\textbf{Demostración identidad}: $\log\left( \sum e^{x_i} \right)=\log\left( \sum e^{x_i-\max(x)+\max(x)} \right)=\log\left( e^{\max(x)} \sum e^{x_i-\max(x)} \right)=\max(x) + \log\left( \sum_i=1^n e^{x_i-\max(x)} \right)$
+
+Así, note que los elementos sobre los cuales se están aplicando la función $\exp(x)$ son no positivos, lo que implica que cada exponencial está acotada por 1 (lo que impide que haya un \textit{overflow}).
+
 
     
 \end{document}
