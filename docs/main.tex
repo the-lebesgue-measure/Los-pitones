@@ -71,11 +71,9 @@ sus propiedades asociadas. \\
 Para la primera función que se usaron los ciclos, se deben saber obviamente las dimensiones de las matrices para que se pueda hacer el producto matricial, 
 luego se hace una matriz llena de ceros con esas dimensiones y se va llenando con el producto matricial entre las dos matrices tradicional que se estudió en Álgebra Lineal. \\ 
 
-\begin{centering}
-
+\[
     C_{ij} = \sum_{k=1}^{n} A_{ik} \, B_{kj}
-
-\end {centering} \\ 
+\] \\ 
 
 Para la segunda función, se utilizó únicamente el \textit{np.dot()}, función de Numpy la cual permite obtener el produto matricial sin bucles y lo hace directamente. 
 
@@ -174,7 +172,7 @@ El índice $d$ se suma (contrae); los índices $b, h, i, j$ se conservan en la s
 En notación \texttt{einsum}:
 
 \[
-\texttt{"bhid, bhjd -> bhij"}
+\texttt{bhid, bhjd -> bhij}
 \]
 
 Equivalente para un solo par $(b, h)$:
@@ -387,7 +385,13 @@ $$\log\left( \sum_{i=1}^n e^{x_i} \right) = \max(x) + \log\left( \sum_{i=1}^n e^
 
 Donde $\sum_{i=1}^n e^{x_i}$ es la suma de las función $exp(x)$ aplicada a los elemento de la i-esima fila de una matriz. Luego, $\max(x)$ es el máximo de los elementos de la fila mencionada anteriormente.
 
-\textbf{Demostración identidad}: $\log\left( \sum e^{x_i} \right)=\log\left( \sum e^{x_i-\max(x)+\max(x)} \right)=\log\left( e^{\max(x)} \sum e^{x_i-\max(x)} \right)=\max(x) + \log\left( \sum_i=1^n e^{x_i-\max(x)} \right)$
+Demostración identidad:
+\[
+\log\left( \sum e^{x_i} \right)=\log\left( \sum e^{x_i-\max(x)+\max(x)} \right)=\log\left( e^{\max(x)} \sum e^{x_i-\max(x)} \right)
+\]
+\[
+=\max(x) + \log\left( \sum_i=1^n e^{x_i-\max(x)} \right)
+\]
 
 Así, note que los elementos sobre los cuales se están aplicando la función $\exp(x)$ son no positivos, lo que implica que cada exponencial está acotada por 1 (lo que impide que haya un \textit{overflow}).
 
