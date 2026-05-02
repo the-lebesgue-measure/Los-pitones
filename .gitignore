@@ -1,0 +1,12 @@
+# Archivos auxiliares de LaTeX
+*.aux
+*.log
+*.synctex.gz
+*.out
+*.toc
+*.fdb_latexmk
+*.fls
+
+# Mantener solo .tex y .pdf
+push origin main.tex
+push origin main.pdf
