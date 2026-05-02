@@ -10,6 +10,7 @@
 \usepackage[margin=3cm]{geometry}
 \usepackage{titlesec}
 \usepackage[autostyle]{csquotes}
+\usepackage{amsmath}
 
 % --- Para dibujar la V de Gowin ---
 \usepackage{tikz}
@@ -42,7 +43,7 @@
 
 \section{Tensor Broadcasting Basics}
 
-En el contexto matemático, se define un objeto algebraico que define
+En el contexto matemático, se define un tensor como un objeto algebraico
 que describe la relación multilinear entre conjuntos de objetos algebraicos asociados
 a un espacio vectorial. Esta sección afirma que en el contexto de \textit{Machine Learning} 
 se acostumbra a manipular tensores con formas variadas. A su vez, presenta un mecanismo llamado \textit{Broadcasting}, que permite 
@@ -62,38 +63,128 @@ de la matriz (dicha fila es un vector). A grandes rasgos, se están haciendo var
 En esta sección se exploran dos formas de programar una función 
 que calcule el producto de dos matrices (con las dimensiones adecuadas). La primera forma
 consiste en usar únicamente las propiedades del paquete básico de Python, mientras que la otra 
-forma utiliza únicamente las funciones optimizadas del paquete \textit{NumPy´s}
+forma utiliza únicamente las funciones optimizadas del paquete \textit{NumPy´s}. \\ 
 
 Cabe destacar que este producto punto es el mismo que se estudió en el curso de Algebra Lineal, con todas
-sus propiedades asociadas.
+sus propiedades asociadas. \\ 
+
+Para la primera función que se usaron los ciclos, se deben saber obviamente las dimensiones de las matrices para que se pueda hacer el producto matricial, 
+luego se hace una matriz llena de ceros con esas dimensiones y se va llenando con el producto matricial entre las dos matrices tradicional que se estudió en Álgebra Lineal. \\ 
+
+\begin{centering}
+
+    C_{ij} = \sum_{k=1}^{n} A_{ik} \, B_{kj}
+
+\end {centering} \\ 
+
+Para la segunda función, se utilizó únicamente el \textit{np.dot()}, función de Numpy la cual permite obtener el produto matricial sin bucles y lo hace directamente. 
 
 \newpage
 
 \section{Element-wise Operations}
 
+Las operaciones elemento a elemento son los componentes básicos de las redes neuronales. 
+A diferencia de la multiplicación de matrices, que combina información de diferentes dimensiones, las operaciones elemento a elemento aplican la misma operación de forma 
+independiente a cada par de elementos correspondiente. \\ 
+
+Se definió una variable epsilon = $1e-8$ para poder hacer divisiones seguras. Se implementó la función que recibe las matrices A y B y hace las siguientes operaciones. \\ 
+
+Suma: $a_{ij} + b_{ij}$, es decir suma entrada por entrada. \\ 
+
+Multiplicación: $a_{ij} * b_{ij}$, es decir multiplica entrada por entrada. \\ 
+
+División: $a_{ij} * b_{ij} + \epsilon$, es decir, divide entrada por entrada y usa el $\epsilon$ para evitar indeterminaciones. \\ 
+
+
 \newpage
 
 \section{Tensor Reshaping \& Transposing}
+
+El redimensionamiento y la transposición de tensores son operaciones fundamentales en el aprendizaje profundo, especialmente cuando se trabaja con datos 
+multidimensionales como imágenes, secuencias y lotes. Estas operaciones nos permiten: \\ 
+
+\noindent Conversión de formato : Cambiar entre diferentes diseños de memoria (por ejemplo, NCHW frente a NHWC para imágenes). \\ \\ 
+Manipulación de dimensiones : Reorganizar los datos para que sean compatibles con diferentes tipos de capas. \\ \\ 
+Procesamiento por lotes : Reestructurar los datos aplanados para convertirlos nuevamente en lotes estructurados. \\ \\ 
+Compatibilidad de API : Adaptar los formatos de entrada esperados para diferentes frameworks (PyTorch usa NCHW, TensorFlow usa NHWC). \\ \\  
+
+La función que se implementó recibe un vector x de una sola dimensión. EL primer paso consiste en verificar si x cumple con los elementos necesarios para rellenar
+el tensor. Si x pasa esa "prueba", ya se le hace el reshape con el B,C,H,W para hacerlo un tensor en 4D en formato NCHW y con el transpose finalmente se convierte en el formato NHWC
+que era el objetivo. 
 
 \newpage
 
 \section{Reduction Operations}
 
+Las operaciones de reducción se fundamentan en la idea de aplicar una función a conjuntos de elementos dentro de un tensor para obtener un valor representativo. 
+Matemáticamente, esto implica tomar una colección de valores y aplicar operaciones como la suma, el promedio (suma entre 
+la cantidad de elementos), el máximo y el índice del máximo.Estas operaciones reducen la dimensionalidad del tensor porque reemplazan múltiples valores por un resumen matemático,
+permitiendo analizar y procesar datos de forma más eficiente.
+
 \newpage
 
 \section{Vector Norms}
+
+Las normas vectoriales son medidas que permiten cuantificar la magnitud o tamaño de un vector en un espacio. La norma L1 se define 
+como la suma de los valores absolutos de sus componentes, lo que implica medir la distancia considerando únicamente desplazamientos 
+por cada eje. Por otro lado, la norma L2 se define como la raíz de la suma de los cuadrados de sus componentes, lo que corresponde a 
+la distancia euclidiana desde el origen. Ambas normas reducen la información de un vector a un solo valor representativo, permitiendo 
+comparar magnitudes y analizar datos.
 
 \newpage
 
 \section{Dot Product \& Cross Product}
 
+El producto punto entre dos vectores se define como la suma del producto de sus componentes correspondientes, lo que permite medir 
+el grado de alineación entre ellos. Matemáticamente, también se relaciona con el ángulo entre los vectores, siendo positivo cuando apuntan en direcciones 
+similares, cero si son perpendiculares y negativo si apuntan en direcciones opuestas.
+
+Por otro lado, el producto cruz se define como una operación que genera un vector perpendicular a los dos vectores originales. Su 
+magnitud representa el área del paralelogramo formado por los vectores, y su dirección se determina mediante la regla de la mano 
+derecha. Esta operación solo está definida en tres dimensiones y es clave en geometría y física.
+
 \newpage
 
 \section{Einstein Summation (einsum) Basics}
 
+La notación de suma de Einstein (np.einsum) es una de las herramientas más potentes y expresivas de NumPy para operaciones con tensores. 
+Proporciona una forma concisa y matemáticamente elegante de especificar contracciones, reducciones y transformaciones complejas de tensores mediante una notación de cadena sencilla.
+
+Para esto, se implementó una función donde para la transpuesta, suma de todos los elementos de la matriz, suma de  filas, suma de columnas y producto matricial, se hace el juego de los 
+índices. Por ejemplo en la transpuesta, basta con intercambiar los i con los j. Aprender este juego con los índices con la función einsum hace mucho más eficientes muchos procesos. 
+
+
 \newpage
 
 \section{Advanced Einsum (Batch MatMul)}
+
+La multiplicación de matrices por lotes es fundamental para el aprendizaje profundo moderno, especialmente en las arquitecturas Transformer, donde los mecanismos 
+de atención requieren operaciones por lotes eficientes. Este problema demuestra la einsumelegancia con la que se manejan las complejas contracciones 
+de tensores multidimensionales, que serían engorrosas con las operaciones matriciales estándar. \\ 
+
+
+Dados dos tensores $Q, K \in \mathbb{R}^{B \times H \times S \times D}$, se calcula el producto $QK^\top$ para cada par $(b, h)$:
+
+\[
+\text{Scores}_{bhij} = \sum_{d=0}^{D-1} Q_{bhid} \cdot K_{bhjd}
+\]
+
+El índice $d$ se suma (contrae); los índices $b, h, i, j$ se conservan en la salida $\text{Scores} \in \mathbb{R}^{B \times H \times S \times S}$.
+
+En notación \texttt{einsum}:
+
+\[
+\texttt{"bhid, bhjd -> bhij"}
+\]
+
+Equivalente para un solo par $(b, h)$:
+
+\[
+\text{Scores}[b,h] = Q[b,h] \cdot K[b,h]^\top \quad (S \times D)\cdot(D \times S) = (S \times S)
+\]
+
+Se implementó la que recibe dos tensores Q y K de forma (B, H, S, D) y usa einsum con la cadena 'bhid,bhjd->bhij' para calcular el producto punto entre 
+cada query y cada key. El índice d desaparece porque se suma, mientras que b, h, i, j se conservan, dando una salida de forma (B, H, S, S).
 
 \newpage
 
@@ -259,9 +350,47 @@ calcular números más grandes que 1).
 
 \section{Cross-Entropy Loss (Manual)}
 
+Se describe la función de pérdida \textit{Cross-entropy loss} como la función más usada al momento de 
+realizar tareas de clasificación en el contexto de redes neuronales. Esta función permite cuantificar el error entre 
+la función de distribución de probabilidad obtenida con el modelo y la distribución verdadera. Esto es fundamental, por ejemplo, al momento de 
+identificar imágenes. Sin esta función, las redes neuronales no podrían ser entrenadas para clasificar datos de manera eficiente.
+
+Esta función requiere dos parámetros: \begin{enumerate}
+    \item \textit{Predicted distribution:} Un vector de la forma $p=[p_1, p_2, \dots, p_C]$ obtenid a partir de la función \textit{softmax}.
+    \item \textit{True distribution:} Un vector tal que identifica la "característica verdadera" (vale 1.0 para la característica verdadera, y 0 para las demás).
+\end{enumerate}
+
+Así, para una característica $y$ se define la función \textit{cross-entropy} como: 
+$$H(p,y)=-log(p_y)$$ El logarítmo aparece con el fin de medir la entropía (llamada informalmente como la medida de sorpresa de un resultado). Así, una probabilidad baja implica una "mayor sorpresa" (mayor pérdida).
+
+Así, dadas $N$ muestras, se define la pérdida total como: 
+$$\text{Loss } = -\frac{1}{N}\sum_{i=1}^N \log(p_{i,y_i}+\varepsilon)$$
+
+donde $p_{i,y_i}$ es la probabilidad que el modelo le asigna a la característica correcta $y_i$ para la i-ésima muestra. Note que la pérdida total es simplemente el promedio de las pérdidas. 
+Note que dentro del logaritmo hay una constante $\varepsilon>0$, esto con el fin de evitar que el logarítmo se evalúe en 0 (esto es necesario pues, si $p_{i,y_i}=0$ entonces $\log(p_{i,y_i})\rightarrow -\infty$, lo que causaría un \textit{overflow}).
+ 
+
 \newpage
 
 \section{Numerical Stability (Log-Sum-Exp)}
+
+En esta sección se describe un método para calcular números de la forma: 
+$$\log\left( \sum_{i=1}^n e^{x_i} \right)$$
+con el fin de evitar un \textit{overflow}, pues las funciones exponenciales son reconocidas por crecer sumamente rápido.
+
+Esto último es relevante pues, de acuerdo a la información brindada por la página \textit{Papercode}, la expresión anterior
+suele aparecer con gran frecuencia en el contexto de \textit{Machine Learning}, por ejemplo al aplicar el logaritmo a una función \textit{softmax}. 
+
+El método consiste en aprovechar la siguiente identidad matemática: 
+
+$$\log\left( \sum_{i=1}^n e^{x_i} \right) = \max(x) + \log\left( \sum_{i=1}^n e^{x_i-\max(x)} \right)$$
+
+Donde $\sum_{i=1}^n e^{x_i}$ es la suma de las función $exp(x)$ aplicada a los elemento de la i-esima fila de una matriz. Luego, $\max(x)$ es el máximo de los elementos de la fila mencionada anteriormente.
+
+\textbf{Demostración identidad}: $\log\left( \sum e^{x_i} \right)=\log\left( \sum e^{x_i-\max(x)+\max(x)} \right)=\log\left( e^{\max(x)} \sum e^{x_i-\max(x)} \right)=\max(x) + \log\left( \sum_i=1^n e^{x_i-\max(x)} \right)$
+
+Así, note que los elementos sobre los cuales se están aplicando la función $\exp(x)$ son no positivos, lo que implica que cada exponencial está acotada por 1 (lo que impide que haya un \textit{overflow}).
+
 
     
 \end{document}
