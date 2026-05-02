@@ -1,9 +1,9 @@
-# nombre.py
+# proyecto.py
 # Hecho por 
 # Anthonny Flores Rojas C32975
 # Randal Picado Bermudez C36024
-# ...
-# ...
+# Leonardo Vega Aragón C38313
+# Andrey Gonzáles Bastos C33329
 
 # Librerias
 import numpy as np
@@ -54,19 +54,6 @@ def matmul_vectorized(A,B):
 
 #Se nota la diferencia en la longitud y complejidad del código cuando no se usa la herramienta de Numpy 
 
-#Tomemos los casos de ejemplo que salen en la página
-
-A = np.array([[1, 2],[3, 4]])
-
-B = np.array([[5, 6],[7, 8]])
-
-print("Naive:")
-print(matmul_naive(A, B))
-
-print("\nVectorized:")
-print(matmul_vectorized(A, B))
-
-
 # Ejercicio 3
 
 #Se implementa la función que se pide que sume, multiplique y divida elemento a elemento de dos matrices A y B
@@ -80,15 +67,6 @@ def elementwise_ops(A,B):
         "mul" : A * B,
         "div" : A / (B+variable_epsilon)
         }
-
-#Se hacen los casos de ejemplo para verificar que todo funcione 
-
-a = np.array([1.0, 2.0])
-b = np.array([0.0, 2.0])
-
-result = elementwise_ops(a, b)
-print(result)
-
 
 # Ejercicio 4
 
@@ -110,19 +88,6 @@ def reshape_and_transpose(x, B, C, H, W):
 
     return resultado
 
-
-#Se usa el ejemplo de prueba para verificar que todo funciona bien
-
-x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24])
-
-B, C, H, W = 1, 2, 3, 4
-
-resultado = reshape_and_transpose(x, B, C, H, W)
-
-print("Shape:", resultado.shape)  # (1, 3, 4, 2)
-print(resultado)
-
-
 # Ejercicio 5
 def tensor_reductions(x: np.ndarray, axis: int):
     resultados = {} #Se crea un diccionario para los resultados
@@ -138,12 +103,6 @@ def tensor_reductions(x: np.ndarray, axis: int):
     resultados["argmax"] = pos_max
     return resultados
 
-#Caso de prueba que se da en la pagina
-x = [[1, 2, 3], 
-     [4, 5, 6]]
-axis = 1
-print(tensor_reductions(x, axis))
-
 # Ejercicio 6
 def compute_norms(x: np.ndarray) -> Dict[str, np.ndarray]:
     resultados = {} #Diccionario para resultados
@@ -154,13 +113,6 @@ def compute_norms(x: np.ndarray) -> Dict[str, np.ndarray]:
     resultados["l1"] = l1
     resultados["l2"] = l2
     return resultados
-
-#Se prueba con el ejemplo de la pagina
-
-x2 = [[3, 4], 
-     [1, -1]]
-print(compute_norms(x2))
-
 
 # Ejercicio 7
 def vector_products(a: np.ndarray, b: np.ndarray) -> Dict[str, np.ndarray]:
@@ -178,12 +130,6 @@ def vector_products(a: np.ndarray, b: np.ndarray) -> Dict[str, np.ndarray]:
     resultados["cross"] = cross
     return resultados
 
-#Caso de prueba
-a = [[1, 0, 0]]
-b = [[0, 1, 0]]
-
-print(vector_products(a, b))
-
 # Ejercicio 8
 
 #Se implementa la función con los einsum de las operaciones que se piden con dps matrices A y B
@@ -197,43 +143,12 @@ def einsum(A,B):
         "matmul":    np.einsum("ik,kj->ij", A, B)
         }
 
-#Hagamos los ejemplos que vienen en la página
-
-A = np.array([[1, 2],[3, 4]])
-B = np.array([[5, 6],[7, 8]])
-
-#Impresión estética de resultados
-
-result = einsum(A, B)
-for key, val in result.items():
-    print(f"{key}:\n{val}\n")
-
-
 # Ejercicio 9
 
 #Se implementa la función batch que se solicita 
 
 def batch_matmul(Q, K):
     return np.einsum('bhid,bhjd->bhij', Q, K)
-
-#Hacemos el caso de prueba que viene en la página
-
-B, H, S, D = 2, 2, 3, 4
-Q = np.random.randn(B, H, S, D)
-K = np.random.randn(B, H, S, D)
-
-scores = batch_matmul(Q, K)
-print("Shape:", scores.shape)  
-
-#Se verifica que coincide con el bucle manual
-
-bucle_scores = np.zeros((B, H, S, S))
-for b in range(B):
-    for h in range(H):
-        bucle_scores[b, h] = Q[b, h] @ K[b, h].T
-
-print("Resultados iguales:", np.allclose(scores, bucle_scores))
-
 
 
 # Ejercicio 10
