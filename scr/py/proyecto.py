@@ -277,7 +277,72 @@ def softmax(x: np.ndarray) -> np.ndarray:
 
 # Ejercicio 14
 
+def cross_entropy_loss(probs: np.ndarray, targets: np.ndarray) -> float:
+    """
+    Computes mean cross-entropy loss.
+    
+    Args:
+        probs: (N, C) probabilities
+        targets: (N,) integer class indices
+        
+    Returns:
+        Scalar float loss
+    """
+    #probs = np.asmatrix(probs)
+
+    targeted_probabilities = np.take_along_axis(probs,np.transpose(np.asmatrix(targets)),axis=1) 
+    #La línea anterior toma la transposición de "targets" y se aplica la función "take_along_axis" a lo largo de las filas (axis = 1) 
+    #de la matriz "probs" con el fin de extraer los elementos de la i-ésima fila asociados al número que se encuentra en la i-ésima 
+    #posición del vector "targets"  
+
+    negative_log_probabilities = -np.log(targeted_probabilities+1e-9)
+    #Se aplica la función logaritmo natural entrada por entrada y a su vez se toma su negativo. El factor +1e-9 era un requisito del 
+    #ejercicio.
+
+    loss = np.mean(negative_log_probabilities)
+    #Se toma la mea de los valores de los logaritmos negativos obtenidos anteriormente y se calcula la media, lo que por definición 
+    #devuelve la pérdida (loss) que se deseaba encontrar.
+
+    pass
+
+    return loss
+
 # Ejercicio 15
+
+def log_sum_exp(x: np.ndarray) -> np.ndarray:
+    """
+    Computes log(sum(exp(x))) stably along the last axis.
+    
+    Args:
+        x: Input (N, D)
+        
+    Returns:
+        Result (N,)
+    """
+    maximum_of_rows =np.apply_along_axis(np.max,1,x) 
+    
+    #Se construye un vector tal que la i-ésima entrada contiene al máximo de la i-ésima fila de la matriz original.
+    
+
+    shifted_matrix=np.transpose(np.transpose(x)-maximum_of_rows) 
+    #Estabiliza. Es necesario hacer la transposicion una vez, pues la resta por defecto agarra la columna i de la matriz y 
+    #le resta la entrada i del vector
+
+    exponentiaded_matrix= np.exp(shifted_matrix) 
+    #Se le aplica la función exp(x) entrada por entrada a la matriz obtenida en la línea anterior.
+
+    sum_of_rows = np.sum(exponentiaded_matrix,axis=1)
+    #Se construye un vector donde la i-ésima entrada contiene a la suma de los elementos de la i-esima fila de la matriz obtenida en la línea 
+    #anterior
+
+    log_sum_exp = maximum_of_rows + np.log(sum_of_rows)
+    #Se le aplica la función logaritmo natural entrada por entrada al vector anterior y se le suma los máximos de cada fila, obtenidos en la 
+    #primera linea. Dicha suma obtiene lo deseado pues, por construcción, ambos vectores están definidos siguiendo el orden
+    #de las filas de la matriz original
+    
+    pass
+    
+    return log_sum_exp
 
 
 
