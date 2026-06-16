@@ -1,0 +1,205 @@
+
+
+\documentclass[12pt, letterpaper]{article}
+
+% --- Paquetes básicos ---
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext,newpxmath} % Fuente estilo Palatino
+\usepackage[margin=3cm]{geometry}
+\usepackage{titlesec}
+\usepackage[autostyle]{csquotes}
+\usepackage{amsmath}
+
+% --- Para dibujar la V de Gowin ---
+\usepackage{tikz}
+\usetikzlibrary{positioning,babel,calc}
+
+% --- Configuración de la sección (1. IDEA DE...) ---
+\titleformat{\section}
+  {\normalfont\large\scshape\centering} 
+  {\thesection.}
+  {0.5em}
+  {}
+
+\title
+{
+    Bitácora I \\[1ex] 
+\large CA0305 - Herramientas de Ciencia de Datos II
+}
+\author{Anthonny Flores Rojas (C32975)\\ Andrey González Bastos (C33329)\\ Randal Picado Bermúdez (C36024)\\ Leonardo Vega Aragón (C38313) }
+\date{\today}
+
+%==============================
+% CUERPO DEL DOCUMENTO
+%==============================
+\begin{document}
+    
+\maketitle
+
+
+\newpage
+
+\section{Linear Layer Forward}
+
+
+
+\newpage
+
+
+\section{Linear Layer Backward}
+
+
+\newpage
+
+\section{ReLU Activation Forward}
+
+Se presenta la 'Rectified Linear Unit', la cual es una de las funciones de activación más usadas en el contexto de redes neuronales, pues les permite a esta estructuras el aprender patrones complejos y aproximar funciones no lineales. En síntesis, permite enseñarle el concepto de no-linealidad a las redes neuronales. Además, su simplicidad hace que sea computacionalmente eficiente (pues, en el fondo, consiste en cálcular el máximo dentro de un conjunto de datos).
+
+Se mencionan cuatro aplicaciones. como lo son en el área de redes neuronales convolucionales, redes generadoras y discriminadoras, entre otras.
+
+Sus principales cualidades es que es equivalente a la función identidad para los números positivos, y a la función idénticamente cero para el resto de números, además de que es no lineal y no acotada. Además, permite esparcir los datos al reemplazar varios valores por cero.
+
+\newpage
+
+\section{ReLU Activation Backward}
+
+Fundamentación matemática: La propagación inversa mediante RELU (Backpropagation through ReLU) permite estudiar los gradientes fluyen, en dirección opuesta, dentro de la función de activación, lo que permite aprender a la red de sus errores. Este proceso es computacionalmente eficiente y permite localizar neuronas muertas (ejemplares que nunca se activan) y entender la causa de su muerte.
+
+Dado que se conoce el cambio de la pérdida (los errores que comete el modelo) con respecto al output de relu\_forward(), se puede determinar el cambio de la pérdida con respecto a los tensores analizados (gracias a la regla de la cadena y a que se puede determinar el cambio del output de relu\_forward() con respecto a los tensores analizados). Con todo lo anterior, y debido a que la pendiente de relu\_forward() es 1 si $x>0$ y 0 si $x\leq0$, entonces se deduce para la i-ésima entrada del vector de pérdidas, su derivada con respecto al tensor es la i-esima entrada del vector gradiente multiplicado por la i-ésima entrada del vector que registra las pendientes de relu\_forward() (la cual es o 1 ó 0).
+
+Si la derivada es 1 (el valor de relu\_forward() asociado era mayor que 0), significa que el gradiente 'pudo devolverse' durante la función de activación. En caso contrario, significa que el gradiente no pudo devolverse (es decir, el modelo no pudo aprender correctamente de sus errores).
+
+
+\newpage
+
+\section{Sigmoid Activation}
+
+
+\newpage
+
+\section{Tanh Activation}
+
+
+
+\newpage
+
+\section{MSE Loss Forward \& Backward}
+
+
+\newpage
+
+\section{Binary Cross Entropy Loss}
+
+
+Fundamentación Matemática: La función de pérdida conocida como "Binary Cross Entropy" es el estándar al momento de lidiar con tareas de clasificación binaria. Esta se encarga de medir que el nivel de éxito con el que la distribución de probabilidad desarrollada por el modelo aproxima a la distribución empírica.
+
+Algunas de sus características más importantes son que logra medir el concepto de entropía dentro de un conjunto de datos (conocido como "sorpresa") y proporciona gradientes con bastante información cuando una predicción es érronea. En general, esta función de pérdida es de gran relevancia debido a que muestra una manera de trabajar con problemas relacionados a clasificación binaria a su vez de que otorga una herramienta para manejar pérdidas basadas en probabilidades.
+
+La función $L$ de pérdida corresponde a: 
+
+$$L(p_1,p_2,\dots,p_N) = \frac{-1}{N} \sum_{i=1}^{N}[y_i \log(p_i)+(1-y_i)\log (1-p_i)]$$
+
+Esta función tiene dos componentes. El primero de ellos el el producto entre la probabilidad empírica $y_i$ y el logaritmo de la probabilidad obtenida por el modelo $p_i$. El segundo término es análogo al primero pero usando los complementos de ambas probabilidades. Por la manera en la que están diseñados ambos términos, se tiene que el modelo penzaliza cuando las predicciones modeladas tienen una magnitud muy diferente a la empírica. Si ambas probabilidades coinciden, no hay pérdida. Si la probabilidad modelada coincide con el complemento de la probabilidad que quería modelar, significa que el error fue de gran magnitud, tanto que el error tiende a infinito. Para evitar problemas de desbordamiendo, se añade un pequeño épsilon dentro de los logaritmos usados en la función.
+
+Finalmente, la fórmula detrás del gradiente (dx) surge a partir de la definición de $L$ mostrada anteriormente, pues dicha definición implica que: 
+
+$$\frac{\partial L}{\partial p_i} =\frac{\partial}{\partial p_i} \left[\frac{-1}{N} \sum_{i=1}^{N}[y_i \log(p_i)+(1-y_i)\log (1-p_i)]\right]$$
+
+Por materia vista en MA-0450, queda que:
+
+$$\frac{\partial L}{\partial p_i} = \frac{-1}{N}\left[ \frac{y_i}{p_i}-\frac{1-y_i}{1-p_i}  \right]$$
+
+Al operar la fracciones y simplificar, se obtiene que: 
+
+$$\frac{\partial L}{\partial p_i}  = \frac{p_i-y_i}{N\cdot p_i(1-p_i)}$$
+
+Finalmente, al considedrar $p_i(1-p_i)$ lo suficientemente no pequeño, se deduce que:
+
+$$\frac{\partial L}{\partial p_i}  \approx \frac{p_i-y_i}{N}$$
+
+Lo que coincide con la fórmula para el cálculo del gradiente brindada por el enunciado.
+
+Esta función se puede ver en ejemplos del mundo real como en la detección de spam en un correo electrónico, o en el estudio de que tan probable es que una persona haga click en un anuncio de una página determinada.
+
+
+
+\newpage
+
+\section{Categorical Cross Entropy Backward}
+
+
+
+\newpage
+
+\section{SGD Optimizer}
+
+
+
+\newpage
+
+\section{Momentum Optimizer}
+
+
+
+
+\newpage
+
+\section{RMSProp Optimizer}
+
+\newpage
+
+\section{Adam Optimizer}
+
+
+
+\newpage
+
+\section{Weight Initialization (Xavier/Glorot)}
+
+
+
+
+\newpage
+
+\section{Weight Initialization (Kaiming/He)}
+
+\newpage
+
+\section{Dropout Forward (Inverted)}
+
+La técnica de regularización \textit{Dropout} es una herramienta sumamente poderosa que permite la prevención de la sobrecapacitación de ciertas neuronas. Esto logra al eliminar ciertas neuronas de manera aleatoria durante el entrenamiento. Pese a lo poco intuitivo que parece, este proceso ayuda a que la red no depende de una neurona en específico al momento de realizar alguna tarea. En general, esto ayuda a que varias neuronas sean capaces de hacer el mismo trabajo de manera relativamente independiente. 
+
+La implementación estándar de la técnica \textit{Dropout}, en la práctica, es la conocida como \textit{Inverted Dropout}. Esto último se debe a que, en el método \textit{Dropout}, el valor esperado del tensor original es distinto al del tensor modificado, pues sus esperanzas satisfacen que:
+
+$$\mathbb{E}[y]=(1-p)\mathbb{E}[x],$$ donde $y$ es el tensor modificado y $x$ el original. La igualdad anterior se puede mostrar usando resultados vistos en CA-0721. Sin embargo, \textit{Inverted Dropout} corrige esto último al tomar el tensor $y^* := y(1-p)^{-1}$, donde $y$ es el tensor obtenido con el método normal. Así, por propiedades de la esperanza, se tendría que la esparanza de $y^*$ y $x$ son iguales.
+
+En general, esta técnica no solo es simple sino que su impacto es muy significativo, pues permite "promediar" a las neuronas de la red. lo anterior a su vez explica el motivo de que sea tan popular, pues está presente en la mayoría de arquitecturas de redes neuronales. Además, la intensidad de este tipo de entrenamiento se puede medir mediante la variación del parámetro $p$. A mayor $p$, más neuronas serán eliminadas, mientras que un $p$ pequeño producirá el efecto contrario. Por esto mismo, el estándar es tomar $p=0.5$.
+
+
+\newpage
+
+\section{Dropout Backward}
+
+La propagación inversa mediante la técnica \textit{Dropout} se encarga de regular las actualizaciones de los gradientes, pues si una neurona es desechada durante el entrenamiento entonces se espera que los gradientes no "fluyan" en neuronas "muertas". Todo el proceso anterior es computacionalmente eficiente y, al mismo tiempo, es fundamental para que las redes neuronales funcionen de la mejor manera. Es justamente por esto que la funcion vista en el ejercicio 16 almacenaba el tensor mask en su output, pues es necesario reutilizarlo en esta función para saber por donde deben "moverse" los gradientes.
+
+A su vez, por todo lo explicado en el ejercicio 16, los gradientes se van a escalar por un factor de $(1-p)^{-1}$ al pasar por las neuronas.
+
+Este proceso retoma lo visto en el ejercicio 4 y lo utiliza para complementar lo visto en el ejercicio 16, por lo que es de vital relevancia en el entrenamiento de las redes neuronales en la gran mayoría de contextos. Es por esto último que las aplicaciones vistas en el ejercicio 16 aplican de igual manera para lo visto en el presente ejercicio.
+
+
+
+\newpage
+
+\section{Batch Normalization Forward (Train vs Eval)}
+
+\newpage
+
+\section{Batch Normalization Backward}
+
+\newpage
+
+\section{Layer Normalization Forward \& Backward}
+
+\end{document}
