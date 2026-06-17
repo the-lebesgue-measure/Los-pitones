@@ -1,7 +1,7 @@
 import numpy as np
 from typing import Tuple, Optional,Dict
 
-
+from bitacora1 import one_hot_encode
 
 #Ejercicio 1:
 
@@ -48,6 +48,36 @@ def relu_backward(dout: np.ndarray, x: np.ndarray) -> np.ndarray:
 
 #Ejercicio 7:
 
+def mse_loss(y_pred: np.ndarray, y_true: np.ndarray) -> Dict[str, float | np.ndarray]:
+    """
+    Computes MSE loss and gradient.
+    """
+    
+    y_pred = np.asarray(y_pred) # Se rectrifica el tipo correcto np
+    y_true = np.asarray(y_true) 
+
+    errors = y_pred - y_true # Error (diferencia)
+
+    squared_errors = errors ** 2 # Error cuadratico
+
+    loss = np.mean(squared_errors) # Media del error cuadratico
+
+    N, D = y_true.shape # Dimensiones de los vectores 
+
+
+    
+    dx = (2 / (N * D)) * errors # Gradiente del MSE
+
+    answer = { # Diccionario de las respuestas
+
+        'loss' : loss,
+        'dx' : dx,
+    }
+
+    return answer   
+
+
+
 #Ejercicio 8:
 
 def bce_loss(y_pred: np.ndarray, y_true: np.ndarray) -> Dict[str, float | np.ndarray]:
@@ -81,13 +111,88 @@ def bce_loss(y_pred: np.ndarray, y_true: np.ndarray) -> Dict[str, float | np.nda
 
 #Ejercicio 9:
 
+def categorical_ce_backward(probs: np.ndarray, targets: np.ndarray) -> np.ndarray:
+    """
+    Computes gradient of Softmax+CE w.r.t logits.
+    """
+    
+    probs = np.asarray(probs) # Se rectrifica el tipo correcto np
+    targets = np.asarray(targets) 
+    num_classes = probs.shape[1]
+
+    one_hot = one_hot_encode(targets, num_classes)
+
+    gradient = probs - one_hot
+
+    N= probs.shape[0]
+
+    dx = gradient/N
+
+    return dx
+
+
+
 #Ejercicio 10:
 
 #Ejercicio 11:
 
+def momentum_step(w: np.ndarray, dw: np.ndarray, v: np.ndarray, lr: float, momentum: float) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Performs SGD with momentum update.
+    Returns (w_new, v_new).
+    """
+
+    v_new = momentum * v + dw
+
+    w_new = w - lr * v_new
+
+    return w_new, v_new
+
+
 #Ejercicio 12:
 
+def rmsprop_step(w: np.ndarray, dw: np.ndarray, cache: np.ndarray, lr: float, decay: float = 0.99, eps: float = 1e-8) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    RMSProp update. Returns (w_new, cache_new).
+    """
+    
+    dw_squared = dw ** 2
+
+    cache_new = decay * cache + (1 - decay) * dw_squared
+
+    adaptive_lr = lr / (np.sqrt(cache_new) + eps)
+
+    w_new = w - adaptive_lr * dw
+
+    return w_new, cache_new
+
+
 #Ejercicio 13:
+
+def adam_step(w: np.ndarray, dw: np.ndarray, m: np.ndarray, v: np.ndarray, t: int, lr: float, beta1: float = 0.9, beta2: float = 0.999, eps: float = 1e-8) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """
+    Adam update. Returns (w_new, m_new, v_new).
+    t is the current timestep (1-indexed).
+    """
+    m_new = beta1 * m + (1 - beta1) * dw
+
+    dw_squared = dw ** 2
+
+    v_new = beta2 * v + (1 - beta2) * dw_squared
+
+    beta1_power = beta1 ** (t + 1)
+    beta2_power = beta2 ** (t + 1)
+
+    m_hat = m_new / (1 - beta1_power)
+
+    v_hat = v_new / (1 - beta2_power)
+
+    adaptive_lr = lr / (np.sqrt(v_hat) + eps)
+
+    w_new = w - adaptive_lr * m_hat
+    
+    return w_new, m_new, v_new
+
 
 #Ejercicio 14:
 
