@@ -118,15 +118,15 @@ def categorical_ce_backward(probs: np.ndarray, targets: np.ndarray) -> np.ndarra
     
     probs = np.asarray(probs) # Se rectrifica el tipo correcto np
     targets = np.asarray(targets) 
-    num_classes = probs.shape[1]
+    num_classes = probs.shape[1] # Se toma el num_classes (dimenciones a lo ancho) para one hot
 
-    one_hot = one_hot_encode(targets, num_classes)
+    one_hot = one_hot_encode(targets, num_classes) # Se utiliza el one_hot ya existente 
 
-    gradient = probs - one_hot
+    gradient = probs - one_hot # Se calcula la diferencia entre probs y one hot
 
-    N= probs.shape[0]
+    N = probs.shape[0] # Se toma el N
 
-    dx = gradient/N
+    dx = gradient/N # Se dividide por el N
 
     return dx
 
@@ -142,9 +142,12 @@ def momentum_step(w: np.ndarray, dw: np.ndarray, v: np.ndarray, lr: float, momen
     Returns (w_new, v_new).
     """
 
-    v_new = momentum * v + dw
+    if v is None:
+        v = np.zeros_like(w) # Se inicializa como 0s si no hay v
 
-    w_new = w - lr * v_new
+    v_new = momentum * v + dw # V nuevo
+
+    w_new = w - lr * v_new # W nuevo 
 
     return w_new, v_new
 
@@ -155,14 +158,17 @@ def rmsprop_step(w: np.ndarray, dw: np.ndarray, cache: np.ndarray, lr: float, de
     """
     RMSProp update. Returns (w_new, cache_new).
     """
+
+    if cache is None:
+        cache = np.zeros_like(w) # Se inicializa como 0s si no hay s
     
-    dw_squared = dw ** 2
+    dw_squared = dw ** 2 # Valores dw cuadrados
 
-    cache_new = decay * cache + (1 - decay) * dw_squared
+    cache_new = decay * cache + (1 - decay) * dw_squared # Se calcula el s nuevo
 
-    adaptive_lr = lr / (np.sqrt(cache_new) + eps)
+    adaptive_lr = lr / (np.sqrt(cache_new) + eps) # Se calcula el eta / raiz de s nuev0 + epsilon por el gradiente de L
 
-    w_new = w - adaptive_lr * dw
+    w_new = w - adaptive_lr * dw # Calculo del w nuevo
 
     return w_new, cache_new
 
@@ -174,22 +180,25 @@ def adam_step(w: np.ndarray, dw: np.ndarray, m: np.ndarray, v: np.ndarray, t: in
     Adam update. Returns (w_new, m_new, v_new).
     t is the current timestep (1-indexed).
     """
-    m_new = beta1 * m + (1 - beta1) * dw
+    if m is None:
+        m = np.zeros_like(dw) # Se inicializa como 0s si no hay momento primero
 
-    dw_squared = dw ** 2
+    if v is None:
+        v = np.zeros_like(dw) # Se inicializa como 0s si no hay momento segundo
 
-    v_new = beta2 * v + (1 - beta2) * dw_squared
+    m_new = beta1 * m + (1 - beta1) * dw # Se calcula el nuevo m
+    v_new = beta2 * v + (1 - beta2) * (dw ** 2) # Se calcula el nuevo v
 
-    beta1_power = beta1 ** (t + 1)
-    beta2_power = beta2 ** (t + 1)
 
-    m_hat = m_new / (1 - beta1_power)
+    beta1_power = beta1 ** (t + 1) # Se calcula el beta para m sombrero
+    beta2_power = beta2 ** (t + 1) # Se calcula el beta para v sombrero
 
-    v_hat = v_new / (1 - beta2_power)
+    m_hat = m_new / (1 - beta1_power) # Se calcula m sombrero
+    v_hat = v_new / (1 - beta2_power) # Se calcula v sombrero
 
-    adaptive_lr = lr / (np.sqrt(v_hat) + eps)
+    adaptive_lr = lr / (np.sqrt(v_hat) + eps) # Calculo del Lr / rais de theta + epsilon
 
-    w_new = w - adaptive_lr * m_hat
+    w_new = w - adaptive_lr * m_hat # Se calucla el nuevo w
     
     return w_new, m_new, v_new
 
