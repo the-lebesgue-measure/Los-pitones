@@ -87,6 +87,35 @@ Si la derivada es 1 (el valor de relu\_forward() asociado era mayor que 0), sign
 
 \section{MSE Loss Forward \& Backward}
 
+La función de pérdida ``Mean squared errore'' es un estándar en los problemas de regresión. 
+Esta permite medir la distancia promedio entre las predicciones del modelo y los valores reales. 
+Esta misma penaliza los errores ``grandes'' gracias al término cuadrático.
+
+
+
+\[
+L(\hat{y}_1,\cdots \hat{y}_N) = \frac{1}{ND}\sum_{i=1}^{N} \sum_{j=1}^{D} (\hat{y}_{ij}-y_{ij})^{2}
+\]
+
+
+
+donde $\hat{y}_{ij}$ es la predicción del modelo para la i-ésima muestra en la j-ésima dimensión 
+y $y_{ij}$ es el valor real. El cociente $ND$ es la normalización de la suma tomando en cuenta 
+la cantidad de datos (se ve en estadística). Por otro lado, la fórmula del gradiente se obtiene 
+de las derivadas parciales con respecto a los valores del modelo:
+
+
+
+\[
+\frac{\partial L}{\partial \hat{y}_{ij} } = \frac{2}{ND}(\hat{y}_{ij}-y_{ij})
+\]
+
+
+
+ya que todo lo demás es constante con respecto a la variable que se está derivando.
+
+Esta función se puede ver en ejemplos del mundo real como en la predicción de precios de viviendas 
+o en la estimación de temperaturas futuras a partir de datos históricos.
 
 \newpage
 
