@@ -87,30 +87,22 @@ Si la derivada es 1 (el valor de relu\_forward() asociado era mayor que 0), sign
 
 \section{MSE Loss Forward \& Backward}
 
-La función de pérdida ``Mean squared errore'' es un estándar en los problemas de regresión. 
+La función de pérdida "Mean squared errore" es un estándar en los problemas de regresión. 
 Esta permite medir la distancia promedio entre las predicciones del modelo y los valores reales. 
-Esta misma penaliza los errores ``grandes'' gracias al término cuadrático.
-
-
+Esta misma penaliza los errores "grandes" gracias al término cuadrático.
 
 \[
 L(\hat{y}_1,\cdots \hat{y}_N) = \frac{1}{ND}\sum_{i=1}^{N} \sum_{j=1}^{D} (\hat{y}_{ij}-y_{ij})^{2}
 \]
-
-
 
 donde $\hat{y}_{ij}$ es la predicción del modelo para la i-ésima muestra en la j-ésima dimensión 
 y $y_{ij}$ es el valor real. El cociente $ND$ es la normalización de la suma tomando en cuenta 
 la cantidad de datos (se ve en estadística). Por otro lado, la fórmula del gradiente se obtiene 
 de las derivadas parciales con respecto a los valores del modelo:
 
-
-
 \[
 \frac{\partial L}{\partial \hat{y}_{ij} } = \frac{2}{ND}(\hat{y}_{ij}-y_{ij})
 \]
-
-
 
 ya que todo lo demás es constante con respecto a la variable que se está derivando.
 
@@ -159,6 +151,29 @@ Esta función se puede ver en ejemplos del mundo real como en la detección de s
 \section{Categorical Cross Entropy Backward}
 
 
+Fundamentación matemática: La propagación inversa de "Softmax + Categorical Cross Entropy" permite obtener el gradiente de la pérdida con respecto a los logits en un solo paso, combinando la derivada de Softmax y la derivada de la entropía cruzada gracias a la regla de la cadena.
+
+Sea $p_i \in \mathbb{R}^C$ el vector de probabilidades obtenido por Softmax para la i-ésima muestra, y sea $e_i \in \{0,1\}^C$ su representación one-hot. La pérdida para dicha muestra es:
+
+\[
+\ell_i = -\sum_{k=1}^{C} e_{ik}\log(p_{ik})
+\]
+
+Al derivar la composición Softmax-$\ell$ con respecto al logit $z_{ij}$, las derivadas de ambas funciones se cancelan parcialmente y queda la siguiente simplificación:
+
+\[
+\frac{\partial \ell_i}{\partial z_{ij}} = p_{ij}-e_{ij}
+\]
+
+Promediando sobre las $N$ muestras del lote, el gradiente final es:
+
+\[
+\frac{\partial L}{\partial z_{ij}} = \frac{p_{ij}-e_{ij}}{N}
+\]
+lo cual coincide con la fórmula dada por el enunciado. Esta simplificación es la razón por la que, en la práctica, casi nunca se calculan por separado las derivadas de Softmax y de la entropía cruzada.
+
+
+
 
 \newpage
 
@@ -170,18 +185,75 @@ Esta función se puede ver en ejemplos del mundo real como en la detección de s
 
 \section{Momentum Optimizer}
 
+Fundamentación matemática: El optimizador con momento es una mejora del descenso de gradiente estocástico que agrega un término de "velocidad" acumulada. Esto permite acelerar el aprendizaje cuando los gradientes apuntan consistentemente en una misma dirección, y suaviza las oscilaciones cuando no.
 
+Las reglas de actualización son:
+
+\[
+v_{t+1} = \mu v_t + \nabla_w L
+\]
+
+\[
+w_{t+1} = w_t - \eta\, v_{t+1}
+\]
+donde $\mu$ es el coeficiente de momento, $\eta$ es la tasa de aprendizaje y $\nabla_w L$ es el gradiente de la pérdida con respecto a los pesos. Cuando $v$ no ha sido inicializado se toma $v_0=\mathbf{0}$, por lo que el primer paso coincide con el descenso de gradiente normal.
+
+Un valor de $\mu$ cercano a 1 le da más peso a los gradientes pasados, generando actualizaciones más suaves pero más lentas de reaccionar ante cambios bruscos. El valor estándar es $\mu=0.9$.
+
+Este método se puede ver en ejemplos del mundo real como en el entrenamiento de redes neuronales profundas para reconocimiento de imágenes, donde los gradientes suelen ser ruidosos.
 
 
 \newpage
 
 \section{RMSProp Optimizer}
 
+Fundamentación matemática: RMSProp es un optimizador adaptativo que busca corregir el problema de usar una única tasa de aprendizaje global, como ocurre en el descenso de gradiente estocástico. Para esto, mantiene una media móvil de los cuadrados de los gradientes y la usa para escalar la actualización de cada parámetro de forma individual.
+
+Las reglas de actualización son:
+
+\[
+s_{t+1} = \rho\, s_t + (1-\rho)(\nabla_w L)^2
+\]
+
+\[
+w_{t+1} = w_t - \frac{\eta}{\sqrt{s_{t+1}}+\varepsilon}\, \nabla_w L
+\]
+donde $\rho$ es el coeficiente de decaimiento (usualmente $\rho=0.99$) y $\varepsilon$ es una constante pequeña que evita la división entre cero. Las operaciones de cuadrado y raíz se hacen entrada por entrada. Si $s$ no ha sido inicializado, se toma $s_0=\mathbf{0}$.
+
+La idea detrás de esto es que los parámetros con gradientes históricamente grandes reciben actualizaciones más pequeñas, y viceversa. Esto ayuda bastante cuando el paisaje de pérdida tiene curvaturas muy distintas entre dimensiones.
+
+Este optimizador se puede ver en ejemplos del mundo real como en el entrenamiento de redes recurrentes para procesamiento de lenguaje natural, donde la escala de los gradientes cambia mucho entre capas.
+
+
 \newpage
 
 \section{Adam Optimizer}
 
 
+Fundamentación matemática: Adam combina las ideas del optimizador con momento y de RMSProp en un solo método. Mantiene una estimación del primer momento (la media) y del segundo momento (la varianza no centrada) de los gradientes.
+
+Las reglas de actualización son:
+
+\[
+m_{t+1} = \beta_1 m_t + (1-\beta_1)\nabla_w L
+\]
+
+\[
+v_{t+1} = \beta_2 v_t + (1-\beta_2)(\nabla_w L)^2
+\]
+donde $\beta_1$ y $\beta_2$ son los coeficientes de decaimiento de cada momento (usualmente $\beta_1=0.9$ y $\beta_2=0.999$). Como $m$ y $v$ se inicializan en cero, ambas estimaciones están sesgadas hacia cero en los primeros pasos. Para corregir esto se calculan las versiones corregidas:
+
+\[
+\hat{m}_{t+1} = \frac{m_{t+1}}{1-\beta_1^{t+1}}, \qquad \hat{v}_{t+1} = \frac{v_{t+1}}{1-\beta_2^{t+1}}
+\]
+
+Finalmente, la actualización de los pesos queda:
+
+\[
+w_{t+1} = w_t - \frac{\eta}{\sqrt{\hat{v}_{t+1}}+\varepsilon}\, \hat{m}_{t+1}
+\]
+
+La corrección de sesgo es lo que hace que las estimaciones sean confiables desde el primer paso, y es la razón por la que Adam funciona bien incluso sin mucho ajuste de hiperparámetros. Por esto mismo, es el optimizador más usado en la práctica, y se puede ver en ejemplos del mundo real como en el preentrenamiento de modelos de lenguaje de gran escala.
 
 \newpage
 
