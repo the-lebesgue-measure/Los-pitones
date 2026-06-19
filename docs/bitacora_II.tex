@@ -25,7 +25,7 @@
 
 \title
 {
-    Bitácora I \\[1ex] 
+    Bitácora II \\[1ex] 
 \large CA0305 - Herramientas de Ciencia de Datos II
 }
 \author{Anthonny Flores Rojas (C32975)\\ Andrey González Bastos (C33329)\\ Randal Picado Bermúdez (C36024)\\ Leonardo Vega Aragón (C38313) }
@@ -43,12 +43,63 @@
 
 \section{Linear Layer Forward}
 
+Se implementa la función \texttt{linear\_forward(x, w, b)} que calcula la operación de una capa lineal, definida matemáticamente como:
+
+\[
+Y = XW + B
+\]
+
+Para que el producto matricial $XW$ tenga sentido, las dimensiones deben ser compatibles. Si $X \in \mathbb{R}^{N \times D}$ y $W \in \mathbb{R}^{D \times M}$, entonces el número de columnas de $X$ debe ser igual al número de filas de $W$, produciendo:
+
+\[
+XW \in \mathbb{R}^{N \times M}
+\]
+
+Cada entrada de la matriz resultante se calcula como:
+
+\[
+(XW)_{ij} = \sum_{k=1}^{D} X_{ik} \, W_{kj}
+\]
+
+Finalmente se suma el vector de bias $B \in \mathbb{R}^{M}$, que se distribuye por broadcasting sobre cada fila del resultado:
+
+\[
+Y_{ij} = \sum_{k=1}^{D} X_{ik} \, W_{kj} + B_j
+\]
 
 
 \newpage
 
 
 \section{Linear Layer Backward}
+
+Se implementa la función \texttt{linear\_backward(dout, x, w, b)} que calcula los gradientes de la capa lineal $Y = XW + B$ respecto a cada uno de sus parámetros, usando la regla de la cadena. El gradiente de entrada es $\frac{\partial L}{\partial Y} = \texttt{dout} \in \mathbb{R}^{N \times D_{out}}$. \\ \\ 
+
+
+\textbf{Gradiente respecto a $X$:}
+
+Indica cuánto contribuyó cada feature de entrada a la pérdida, y propaga el gradiente hacia la capa anterior:
+
+\[
+\frac{\partial L}{\partial X} = \texttt{dout} \cdot W^T \in \mathbb{R}^{N \times D_{in}}
+\] \\ \\
+
+\textbf{Gradiente respecto a $W$:}
+
+Indica cuánto debe cambiar cada peso para reducir la pérdida, y se usa para actualizar $W$ en la optimización:
+
+\[
+\frac{\partial L}{\partial W} = X^T \cdot \texttt{dout} \in \mathbb{R}^{D_{in} \times D_{out}}
+\] \\ \\ 
+
+\textbf{Gradiente respecto a $B$:}
+
+Como $B$ se suma por broadcasting a cada muestra del batch, su gradiente acumula la contribución de todas las muestras:
+
+\[
+\frac{\partial L}{\partial B_j} = \sum_{i=1}^{N} \texttt{dout}_{ij} \in \mathbb{R}^{D_{out}}
+\]
+
 
 
 \newpage
@@ -295,12 +346,136 @@ Este proceso retoma lo visto en el ejercicio 4 y lo utiliza para complementar lo
 
 \section{Batch Normalization Forward (Train vs Eval)}
 
+Se implementa la función \texttt{batchnorm\_forward} que normaliza cada feature del batch durante el entrenamiento. \\ \\ 
+
+Se calculan sobre todas las muestras del batch para cada feature $j$:
+
+\[
+\mu_j = \frac{1}{N} \sum_{i=1}^{N} x_{ij} \qquad
+\sigma^2_j = \frac{1}{N} \sum_{i=1}^{N} (x_{ij} - \mu_j)^2
+\] \\ 
+
+Cada valor se normaliza usando la media y varianza de su feature:
+
+\[
+\hat{x}_{ij} = \frac{x_{ij} - \mu_j}{\sqrt{\sigma^2_j + \varepsilon}}
+\] \\ \\ 
+
+
+Se aplican los parámetros aprendibles $\gamma$ y $\beta$, uno por feature:
+
+\[
+y_{ij} = \gamma_j \hat{x}_{ij} + \beta_j
+\] \\ \\
+
+Durante el entrenamiento se mantienen promedios móviles para usarse en inferencia:
+
+\[
+\mu_{\text{running}} \leftarrow \alpha \cdot \mu_{\text{running}} + (1 - \alpha) \cdot \mu_{\text{batch}}
+\]
+\[
+\sigma^2_{\text{running}} \leftarrow \alpha \cdot \sigma^2_{\text{running}} + (1 - \alpha) \cdot \sigma^2_{\text{batch}}
+\] \\ \\ 
+
+En lugar de calcular estadísticas del batch actual, se usan directamente las acumuladas durante el entrenamiento:
+
+\[
+\hat{x}_{ij} = \frac{x_{ij} - \mu_{\text{running}}}{\sqrt{\sigma^2_{\text{running}} + \varepsilon}}
+\]
+
+
 \newpage
 
 \section{Batch Normalization Backward}
 
+Se implementa la función \texttt{batchnorm\_backward(dout, cache)} que calcula los gradientes de la pérdida respecto a cada parámetro de la capa de normalización, usando la regla de la cadena.
+
+
+Como $\beta$ se suma a cada muestra del batch, su gradiente acumula \texttt{dout} sobre todas las muestras:
+
+\[
+\frac{\partial L}{\partial \beta_j} = \sum_{i=1}^{N} \texttt{dout}_{ij}
+\]
+
+\textbf{Gradiente respecto a $\gamma$:}
+
+Como $\gamma$ multiplica a $\hat{x}$, por la regla del producto su gradiente es:
+
+\[
+\frac{\partial L}{\partial \gamma_j} = \sum_{i=1}^{N} \texttt{dout}_{ij} \cdot \hat{x}_{ij}
+\] \\ \\ 
+
+\textbf{Gradiente respecto a $X$:}
+
+Es el más complejo, ya que $x$ afecta la salida tanto directamente a través de $\hat{x}$, como indirectamente a través de $\mu$ y $\sigma^2$. Primero se obtiene el gradiente que llega a $\hat{x}$:
+
+\[
+\frac{\partial L}{\partial \hat{x}} = \texttt{dout} \cdot \gamma
+\] \\ 
+
+Luego se corrige el efecto de la media y la varianza, que también dependen de $x$:
+
+\[
+\delta\mu = \frac{1}{N}\sum_{i=1}^{N} \frac{\partial L}{\partial \hat{x}_{ij}}
+\] 
+
+\[
+\delta\sigma^2 = \frac{1}{N}\sum_{i=1}^{N} \frac{\partial L}{\partial \hat{x}_{ij}} \cdot (x_{ij} - \mu_j)
+\]
+
+Combinando las tres correcciones:
+
+\[
+\frac{\partial L}{\partial x_{ij}} = \frac{1}{\sqrt{\sigma^2_j + \varepsilon}} \left( \frac{\partial L}{\partial \hat{x}_{ij}} - \delta\mu_j - \hat{x}_{ij} \cdot \delta\sigma^2_j \right)
+\]
+
+
 \newpage
 
 \section{Layer Normalization Forward \& Backward}
+
+Se implementan las funciones \texttt{layernorm\_forward} y \texttt{layernorm\_backward}, análogas a los ejercicios 18 y 19 pero con una diferencia clave: en lugar de normalizar por feature sobre el batch (axis=0), se normaliza por muestra sobre las features (axis=1). \\
+
+A diferencia de BatchNorm donde $\mu_j$ y $\sigma^2_j$ son por feature, aquí se calculan por cada muestra $i$:
+
+\[
+\mu_i = \frac{1}{D} \sum_{j=1}^{D} x_{ij} \qquad
+\sigma^2_i = \frac{1}{D} \sum_{j=1}^{D} (x_{ij} - \mu_i)^2
+\] \\
+
+Ambas tienen forma $(N, 1)$ con \texttt{keepdims=True} para que el broadcasting funcione correctamente sobre $(N, D)$.
+
+\[
+\hat{x}_{ij} = \frac{x_{ij} - \mu_i}{\sqrt{\sigma^2_i + \varepsilon}}
+\] \\ \\ 
+
+Igual que en BatchNorm, se aplican los parámetros aprendibles $\gamma$ y $\beta$:
+
+\[
+y_{ij} = \gamma_j \hat{x}_{ij} + \beta_j
+\] \\ \\ 
+
+
+Los gradientes de $\beta$ y $\gamma$ se calculan igual que en el ejercicio 19, sumando sobre el batch:
+
+\[
+\frac{\partial L}{\partial \beta_j} = \sum_{i=1}^{N} \texttt{dout}_{ij} \qquad
+\frac{\partial L}{\partial \gamma_j} = \sum_{i=1}^{N} \texttt{dout}_{ij} \cdot \hat{x}_{ij}
+\] \\ \\ 
+
+Para $dx$, las correcciones por media y varianza ahora promedian sobre las features (axis=1) en lugar del batch, manteniendo forma $(N,1)$:
+
+\[
+\delta\mu_i = \frac{1}{D}\sum_{j=1}^{D} \frac{\partial L}{\partial \hat{x}_{ij}}
+\qquad
+\delta\sigma^2_i = \frac{1}{D}\sum_{j=1}^{D} \frac{\partial L}{\partial \hat{x}_{ij}} \cdot (x_{ij} - \mu_i)
+\] \\ \\
+
+El gradiente final tiene la misma forma que en el ejercicio 19:
+
+\[
+\frac{\partial L}{\partial x_{ij}} = \frac{1}{\sqrt{\sigma^2_i + \varepsilon}} \left( \frac{\partial L}{\partial \hat{x}_{ij}} - \delta\mu_i - \hat{x}_{ij} \cdot \delta\sigma^2_i \right)
+\]
+
 
 \end{document}

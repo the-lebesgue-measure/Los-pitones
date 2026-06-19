@@ -631,3 +631,4 @@ print("dx     obtenida:\n", gradientes['dx'],  "esperado: valores tirando a cero
 
 
 
+
