@@ -119,9 +119,65 @@ def relu_backward(dout: np.ndarray, x: np.ndarray) -> np.ndarray:
 
     return dx #Se devuelve el tensor deseado.
 
+
 #Ejercicio 5:
 
+def sigmoid_ops(x: np.ndarray, dout: np.ndarray):
+
+    x    = np.asarray(x)
+    dout = np.asarray(dout)
+
+    # Forward pass, versión numéricamente estable según el signo de x
+    # Si x >= 0: σ(x) = 1 / (1 + e^(-x))
+    # Si x <  0: σ(x) = e^x / (1 + e^x)  → evita e^(-x) enorme
+    out = np.where(x >= 0,
+                   1 / (1 + np.exp(-x)),
+                   np.exp(x) / (1 + np.exp(x)))
+
+    # Backward pass, derivada σ'(x) = σ(x)(1 - σ(x)), luego regla de la cadena
+    dx = dout * out * (1 - out)
+
+    return {"out": out, "dx": dx}
+
+# Caso de prueba
+x = np.array([-2.0, -1.0, 0.0, 1.0, 2.0])
+dout = np.array([ 0.1,  0.2, 0.3, 0.4, 0.5])
+
+resultado = sigmoid_ops(x, dout)
+
+print("out (forward)")
+print( np.round(resultado["out"], 3))
+
+print("dx (backward)")
+print( np.round(resultado["dx"], 4))
+
 #Ejercicio 6:
+
+def tanh_ops(x, dout):
+
+    x    = np.asarray(x)
+    dout = np.asarray(dout)
+
+    # Forward pass, numpy ya tiene tanh optimizada y numéricamente estable
+    out = np.tanh(x)
+
+    # Backward pass, derivada tanh'(x) = 1 - tanh²(x), luego regla de la cadena
+    dx = dout * (1 - out ** 2)
+
+    return {"out": out, "dx": dx}
+
+
+# Caso de prueba
+
+x    = np.array([-2.0, -1.0, 0.0, 1.0, 2.0])
+dout = np.array([ 0.1,  0.2, 0.3, 0.4, 0.5])
+
+resultado = tanh_ops(x, dout)
+
+print("out (forward)")
+print(np.round(resultado["out"], 3))
+print("dx (backward)")
+print(np.round(resultado["dx"], 4))
 
 #Ejercicio 7:
 
@@ -211,6 +267,28 @@ def categorical_ce_backward(probs: np.ndarray, targets: np.ndarray) -> np.ndarra
 
 #Ejercicio 10:
 
+def sgd_step(w, dw, lr):
+
+    w  = np.asarray(w)
+    dw = np.asarray(dw)
+
+    # Actualización SGD: w_nuevo = w - lr * dw
+    w_new = w - lr * dw
+
+    return w_new
+
+
+# Caso de prueba
+
+w  = np.array([[1.0, 2.0], [3.0, 4.0]])
+dw = np.array([[0.5, -0.3], [-0.2, 0.1]])
+lr = 0.01
+
+w_new = sgd_step(w, dw, lr)
+
+print("w actualizado")
+print(np.round(w_new, 3))
+
 #Ejercicio 11:
 
 def momentum_step(w: np.ndarray, dw: np.ndarray, v: np.ndarray, lr: float, momentum: float) -> Tuple[np.ndarray, np.ndarray]:
@@ -282,7 +360,52 @@ def adam_step(w: np.ndarray, dw: np.ndarray, m: np.ndarray, v: np.ndarray, t: in
 
 #Ejercicio 14:
 
-#Ejercicio 15:
+def xavier_init(shape):
+
+    fan_in, fan_out = shape
+
+    # Límite de la distribución uniforme: sqrt(6 / (fan_in + fan_out))
+    limit = np.sqrt(6.0 / (fan_in + fan_out))
+
+    # Se muestrea de U(-limit, limit) con la forma pedida
+    w = np.random.uniform(low=-limit, high=limit, size=shape)
+
+    return w
+
+
+# Caso de prueba
+
+shape = (100, 50)
+w = xavier_init(shape)
+
+print("Shape:", w.shape)
+print("Min:  ", round(w.min(), 4))
+print("Max:  ", round(w.max(), 4))
+print("Media:", round(w.mean(), 4))
+
+#Ejercicio 15
+
+def kaiming_init(shape):
+
+    fan_in, fan_out = shape
+
+    # Desviación estándar: sqrt(2 / fan_in)
+    std = np.sqrt(2.0 / fan_in)
+
+    # Se muestrea de N(0, std) con la forma pedida
+    w = np.random.normal(loc=0.0, scale=std, size=shape)
+
+    return w
+
+
+# Caso de prueba
+
+shape = (100, 50)
+w = kaiming_init(shape)
+
+print("Shape:", w.shape)
+print("Media:", round(w.mean(), 4))
+print("Std:  ", round(w.std(), 4))
 
 #Ejercicio 16:
 
