@@ -127,11 +127,80 @@ Si la derivada es 1 (el valor de relu\_forward() asociado era mayor que 0), sign
 
 \section{Sigmoid Activation}
 
+Se implementa la función \texttt{sigmoid\_ops(x, dout)} que realiza tanto el paso
+hacia adelante como el paso hacia atrás de la función de activación sigmoide.
+
+La función sigmoide se define como:
+
+\[
+\sigma(x) = \frac{1}{1+e^{-x}}
+\]
+
+Su rango de salida es $(0,1)$, lo que la hace especialmente útil para interpretar
+salidas como probabilidades. Tiene forma de S, es simétrica alrededor del punto
+$(0, 0.5)$ y es diferenciable en todo su dominio.
+
+Para evitar problemas de desbordamiento numérico con valores muy negativos de $x$,
+donde $e^{-x}$ puede volverse extremadamente grande, se utiliza una forma equivalente
+según el signo de la entrada:
+
+\[
+\sigma(x) = \begin{cases} \dfrac{1}{1+e^{-x}} & \text{si } x \geq 0 \\[10pt] \dfrac{e^{x}}{1+e^{x}} & \text{si } x < 0 \end{cases}
+\]
+
+Ambas expresiones son matemáticamente idénticas, pero la segunda es numéricamente
+estable para entradas negativas. La derivada de la sigmoide tiene una forma muy
+conveniente, pues puede calcularse directamente a partir del output del forward
+sin necesidad de recomputar nada:
+
+\[
+\sigma'(x) = \sigma(x)(1 - \sigma(x))
+\]
+
+Aplicando la regla de la cadena, el gradiente que se propaga hacia atrás es:
+
+\[
+\frac{\partial L}{\partial x} = \texttt{dout} \cdot \sigma(x)(1 - \sigma(x))
+\]
+
+Esta función se puede ver en ejemplos del mundo real como en la capa de salida
+de modelos de clasificación binaria, donde se necesita que la red produzca una
+probabilidad entre 0 y 1.
+
 
 \newpage
 
 \section{Tanh Activation}
 
+Se implementa la función \texttt{tanh\_ops(x, dout)} que realiza tanto el paso
+hacia adelante como el paso hacia atrás de la función de activación tangente
+hiperbólica.
+
+La función tangente hiperbólica se define como:
+
+\[
+\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}
+\]
+
+Su rango de salida es $(-1, 1)$, a diferencia de la sigmoide que produce valores
+en $(0,1)$. Esto la hace centrada en cero, lo que en la práctica acelera la
+convergencia durante el entrenamiento pues los gradientes no están sesgados hacia
+un lado. Al igual que la sigmoide, tiene forma de S y es diferenciable en todo
+su dominio.
+
+NumPy implementa \texttt{np.tanh} de forma optimizada y numéricamente estable,
+por lo que se usa directamente en el forward. Su derivada también tiene una forma
+conveniente que se puede calcular a partir del output del forward:
+
+\[
+\tanh'(x) = 1 - \tanh^2(x)
+\]
+
+Aplicando la regla de la cadena, el gradiente que se propaga hacia atrás es:
+
+\[
+\frac{\partial L}{\partial x} = \texttt{dout} \cdot (1 - \tanh^2(x))
+\]
 
 
 \newpage
@@ -230,7 +299,28 @@ lo cual coincide con la fórmula dada por el enunciado. Esta simplificación es 
 
 \section{SGD Optimizer}
 
+Se implementa la función \texttt{sgd\_step(w, dw, lr)} que realiza un paso del
+descenso de gradiente estocástico
 
+La regla de actualización es:
+
+\[
+w_{t+1} = w_t - \eta \cdot \nabla L(w_t)
+\]
+
+donde $w_t$ son los pesos actuales, $\nabla L(w_t)$ es el gradiente de la pérdida
+con respecto a los pesos calculado mediante backpropagation, y $\eta$ es la tasa
+de aprendizaje que controla el tamaño del paso. La idea detrás de esta fórmula
+es simple: el gradiente apunta hacia donde la pérdida \textit{sube}, entonces
+nos movemos en la dirección contraria para \textit{bajarla}.
+
+La elección de $\eta$ es crítica: un valor demasiado grande puede hacer que el
+modelo diverja, mientras que uno demasiado pequeño hace que el entrenamiento sea
+muy lento. Los valores típicos están entre $10^{-3}$ y $10^{-1}$.
+
+Esta función se puede ver en ejemplos del mundo real como en el entrenamiento
+inicial de modelos sencillos de clasificación, donde su simplicidad lo hace
+fácil de entender y depurar.
 
 \newpage
 
@@ -310,12 +400,50 @@ La corrección de sesgo es lo que hace que las estimaciones sean confiables desd
 
 \section{Weight Initialization (Xavier/Glorot)}
 
+Se implementa la función \texttt{xavier\_init(shape)} que inicializa los pesos
+de una capa usando la distribución uniforme de Xavier/Glorot.
 
+El problema que resuelve esta técnica es que si los pesos se inicializan con
+valores muy grandes o muy pequeños, las activaciones y los gradientes pueden
+explotar o desvanecerse al propagarse por las capas. Xavier propone inicializar
+los pesos muestreando de una distribución uniforme:
 
+\[
+W_{ij} \sim U\left(-\sqrt{\frac{6}{fan_{in} + fan_{out}}},\ \sqrt{\frac{6}{fan_{in} + fan_{out}}}\right)
+\]
+
+donde $fan_{in}$ es el número de entradas a la capa y $fan_{out}$ el número de
+salidas. El límite $\sqrt{\frac{6}{fan_{in} + fan_{out}}}$ está diseñado para
+que la varianza de las activaciones se mantenga aproximadamente constante a lo
+largo de las capas, evitando que la información se amplifique o se apague
+progresivamente.
+
+Esta inicialización es especialmente adecuada para funciones de activación
+simétricas alrededor del cero como \texttt{tanh} o sigmoide, y se puede ver
+en ejemplos del mundo real como en la inicialización de redes profundas para
+procesamiento de lenguaje natural.
 
 \newpage
 
 \section{Weight Initialization (Kaiming/He)}
+
+Se implementa la función \texttt{kaiming\_init(shape)} que inicializa los pesos
+usando la distribución normal de Kaiming/He, diseñada específicamente para
+capas con activación ReLU.
+
+La diferencia con Xavier es que ReLU elimina aproximadamente la mitad de las
+activaciones (las negativas), lo que reduce la varianza a la mitad en cada capa.
+Para compensar esto, Kaiming propone usar una varianza mayor, muestreando de
+una distribución normal:
+
+\[
+W_{ij} \sim \mathcal{N}\left(0,\ \sqrt{\frac{2}{fan_{in}}}\right)
+\]
+
+El factor 2 en el numerador compensa exactamente la reducción de varianza que
+produce ReLU. Nótese que a diferencia de Xavier, aquí solo importa $fan_{in}$
+y no $fan_{out}$, pues la corrección apunta a mantener la varianza estable en
+el paso hacia adelante.
 
 \newpage
 
